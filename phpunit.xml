@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         bootstrap="code/vendor/autoload.php"
+         verbose="true"
+         colors="true"
+         cacheResultFile=".temp/.phpunit.result.cache"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
+  <coverage includeUncoveredFiles="false"
+            processUncoveredFiles="true">
+    <include>
+      <directory suffix=".php">./code</directory>
+    </include>
+    <exclude>
+      <directory suffix=".php">./vendor/src/database</directory>
+      <directory suffix=".php">./vendor</directory>
+      <directory suffix=".php">../database/</directory>
+      <directory suffix=".php">../tests/</directory>
+    </exclude>
+  </coverage>
+</phpunit>

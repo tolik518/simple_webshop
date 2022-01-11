@@ -1,0 +1,231 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+* {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+}
+
+body {
+    background-color: #FAF7F7;
+    margin: 0;
+    margin-inline: 0px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+#header{
+    display: flex;
+    height: 10rem;
+    background: white;
+    width: 100%;
+    margin-inline: 0;
+    padding-inline: 0;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0    2px 2.2px rgba(0, 0, 0, 0.05),
+                0 -0.5px 2.2px rgba(0, 0, 0, 0.05);
+}
+
+#header #headercontent{
+    width: 69rem;
+    margin: auto;
+    margin-block: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-content: center;
+}
+
+#header #headercontent #navbarwrapper{
+    margin: auto;
+    margin-block: 0;
+    width: 45%;
+}
+#header #headercontent #logowrapper{
+    margin: auto;
+    width: 10%;
+}
+#header #headercontent #searchbarwrapper{
+    margin: auto;
+    margin-block: 0;
+    width: 45%;
+}
+
+#header #headercontent #searchbarwrapper #searchbaroutline #searchbar{
+    outline: none;
+    border: none;
+}
+
+#header #headercontent #searchbarwrapper #searchbaroutline{
+    color: #ababab;
+    float: right;
+    border: #ababab 1px solid;
+    padding: 5px;
+}
+
+#header #headercontent #searchbarwrapper #searchbaroutline i{
+    margin: 2px;
+}
+
+#content{
+    width: 69rem;
+    margin: auto;
+}
+
+#footer{
+    margin-top: 100px;
+}
+
+#footer .contacts{
+    display: flex;
+    height: 10rem;
+    background: white;
+    width: 100%;
+    margin-inline: 0;
+    padding-inline: 0;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0    2px 2.2px rgba(0, 0, 0, 0.05),
+                0 -0.5px 2.2px rgba(0, 0, 0, 0.05);
+}
+
+#footer .labels{
+    display: flex;
+    height: 10rem;
+    background: #E6001E;
+    color: white;
+    width: 100%;
+    margin-inline: 0;
+    padding-inline: 0;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0    2px 2.2px rgba(0, 0, 0, 0.05),
+    0 -0.5px 2.2px rgba(0, 0, 0, 0.05);
+}
+
+#footer .linksandstuff{
+    display: flex;
+    height: 10rem;
+    background: #595959;
+    color: white;
+    width: 100%;
+    margin-inline: 0;
+    padding-inline: 0;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0    2px 2.2px rgba(0, 0, 0, 0.05),
+    0 -0.5px 2.2px rgba(0, 0, 0, 0.05);
+}
+
+#footer .anotherfooter{
+    display: flex;
+    height: 10rem;
+    background: #9d9d9d;
+    color: white;
+    width: 100%;
+    margin-inline: 0;
+    padding-inline: 0;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0    2px 2.2px rgba(0, 0, 0, 0.05),
+    0 -0.5px 2.2px rgba(0, 0, 0, 0.05);
+}
+
+#productPathWrapper {
+    margin-block: 0.5rem;
+}
+
+#productPathWrapper #productPath {
+    font-size: 1rem;
+    font-variant-caps: all-small-caps;
+}
+
+#productPathWrapper #productPath a:hover {
+    color: red;
+}
+
+#productOverviewPage {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#productOverviewPage .productcard {
+    border-radius: max(0px, min(3px, (100vw - 100%) * 9999));
+    height: 20rem;
+    min-height: 20rem;
+    max-height: 20rem;
+    width: 14rem;
+    max-width: 15rem;
+    background: white;
+    padding: 1.25rem;
+    margin: 0.25rem;
+    box-shadow: 0 2px 2.2px rgb(0 0 0 / 12%), 0 -0.5px 2.2px rgb(0 0 0 / 12%);
+    overflow: hidden;
+}
+
+#productOverviewPage .productcard:hover {
+    box-shadow: 0 2px 2.2px rgb(155 0 0 / 32%), 0 -0.5px 2.2px rgb(155 0 0 / 32%);
+}
+
+
+#productOverviewPage .productcard:hover .productimage img {
+    transform: scale(1.2);
+    transition: all 0.25s ease-out;
+}
+
+#productOverviewPage .productcard a:link {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+}
+
+#productOverviewPage .productcard .productimage {
+    margin: auto;
+    height: 15rem;
+    min-height: 15rem;
+    display: inline-flex;
+}
+
+#productOverviewPage .productcard .productimage img {
+    margin: auto;
+    width: 100%;
+}
+
+#productOverviewPage .productcard .infoAll {
+    z-index: 1;
+    color: black;
+    display: grid;
+}
+
+#productOverviewPage .productcard .infoAll .name {
+    font-weight: 400;
+}
+
+#productOverviewPage .productcard .infoAll .shortdesc {
+    font-size: 0.8rem;
+    color: #555555;
+    margin-top: 0.5rem;
+}
+
+#productOverviewPage .productcard .infoAll .price {
+    margin-top: 0.5rem;
+}
+
+/* Set the size of the div element that contains the map */
+#map {
+    height: 200px;
+    /* The height is 400 pixels */
+    width: 100%;
+    /* The width is the width of the web page */
+}
