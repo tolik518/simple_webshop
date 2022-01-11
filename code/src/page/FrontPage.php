@@ -2,6 +2,8 @@
 
 namespace webShop;
 
+use JetBrains\PhpStorm\Pure;
+
 class FrontPage
 {
     public function __construct(
@@ -9,7 +11,7 @@ class FrontPage
         private VariablesWrapper $variablesWrapper
     ){}
 
-    public function getProductsAll()
+    public function getProductsAll(): string
     {
         return $this->frontProjector->getHtml();
     }
