@@ -4,20 +4,30 @@ namespace webShop;
 
 class FrontProjector
 {
-    public function getHtml(): string
+    public function getHtml($products = [0,0,0,0,0,0,0,0,0,0,0]): string
     {
-        $html       = file_get_contents(HTML.'frontpage.html');
+        $html = file_get_contents(HTML.'_index.html');
+        $contentHTML = file_get_contents(HTML.'productoverview/productoverview.html');
+        $productcardHTML = file_get_contents(HTML.'productoverview/_productcard.html');
 
-        $headhtml   = file_get_contents(HTML.'_head.html');
+        $headHTML   = file_get_contents(HTML.'_head.html');
 
-        $footerhtml = file_get_contents(HTML.'_footer.html');
-        $headerhtml = file_get_contents(HTML.'_header.html');
+        $footerHTML = file_get_contents(HTML.'_footer.html');
+        $headerHTML = file_get_contents(HTML.'_header.html');
 
-        $html = str_replace('%%HEAD%%', $headhtml, $html);
+        $html = str_replace('%%HEAD%%', $headHTML, $html);
 
-        $html = str_replace('%%FOOTER%%', $footerhtml, $html);
-        $html = str_replace('%%HEADER%%', $headerhtml, $html);
+        $html = str_replace('%%HEADER%%', $headerHTML, $html);
+        $html = str_replace('%%CONTENT%%', $contentHTML, $html);
+        $html = str_replace('%%FOOTER%%', $footerHTML, $html);
 
+        $productsHTML = "";
+        foreach($products as $product)
+        {
+            $productsHTML .= $productcardHTML;
+        }
+
+        $html = str_replace('%%PRODUCTS%%', $productsHTML, $html);
 
         return $html;
     }
