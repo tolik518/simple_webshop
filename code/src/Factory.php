@@ -19,6 +19,9 @@ class Factory
     {
        return new FrontPage(
             new FrontProjector(),
+            new MySQLProductOverviewLoader(
+                new MySQLConnector()
+            ),
             new VariablesWrapper()
         );
     }

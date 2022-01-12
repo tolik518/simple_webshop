@@ -4,7 +4,7 @@ namespace webShop;
 
 class FrontProjector
 {
-    public function getHtml($products = [0,0,0,0,0,0,0,0,0,0,0]): string
+    public function getHtml($products): string
     {
         $html = file_get_contents(HTML.'_index.html');
         $contentHTML = file_get_contents(HTML.'productoverview/productoverview.html');
@@ -25,6 +25,10 @@ class FrontProjector
         foreach($products as $product)
         {
             $productsHTML .= $productcardHTML;
+            $productsHTML = str_replace('%%PRODUCTID%%',        $product['id'], $productsHTML);
+            $productsHTML = str_replace('%%PRODUCTNAME%%',      $product['productname'], $productsHTML);
+            $productsHTML = str_replace('%%PRODUCTSHORTDESC%%', $product['productshortdesc'], $productsHTML);
+
         }
 
         $html = str_replace('%%PRODUCTS%%', $productsHTML, $html);
