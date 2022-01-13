@@ -9,6 +9,12 @@ class ProductProjector
         $html = file_get_contents(HTML.'_index.html');
         $contentHTML = file_get_contents(HTML.'product/product.html');
 
+        $contentHTML = str_replace('%%PRODUCTIMAGE%%', $product->getProductImage(1), $contentHTML);
+        $contentHTML = str_replace('%%PRODUCTNAME%%', $product->getProductName(), $contentHTML);
+        $contentHTML = str_replace('%%PRODUCTDESC%%', ProductDesc::toHTML($product->getProductDesc()), $contentHTML);
+        $contentHTML = str_replace('%%PRODUCTDETAILS%%', ProductDetail::toHTML($product->getProductDetail()), $contentHTML);
+
+
         $headHTML   = file_get_contents(HTML.'_head.html');
 
         $footerHTML = file_get_contents(HTML.'_footer.html');

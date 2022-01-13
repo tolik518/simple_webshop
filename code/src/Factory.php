@@ -4,39 +4,42 @@ namespace webShop;
 
 class Factory
 {
-    public function createApplication(): Application
+    public function createApplication($mySQLConnector): Application
     {
         return new Application(
             new Router(
-                $this->createAdminDashboardPage(),
-                $this->createFrontPage(),
-                $this->createProductPage(),
+                $this->createAdminDashboardPage($mySQLConnector),
+                $this->createFrontPage($mySQLConnector),
+                $this->createProductPage($mySQLConnector),
                 new SessionManager()
             ),
             new VariablesWrapper()
         );
     }
 
-    public function createAdminDashboardPage(): AdminDashboardPage
+    public function createAdminDashboardPage($mySQLConnector): AdminDashboardPage
     {
         return new AdminDashboardPage(
             new AdminDashboardProjector()
         );
     }
 
-    public function createProductPage(): ProductPage
+    public function createProductPage($mySQLConnector): ProductPage
     {
         return new ProductPage(
+            new MySQLProductLoader(
+                $mySQLConnector->getConnection()
+            ),
             new ProductProjector()
         );
     }
 
-    public function createFrontPage(): FrontPage
+    public function createFrontPage($mySQLConnector): FrontPage
     {
        return new FrontPage(
             new FrontProjector(),
             new MySQLProductOverviewLoader(
-                new MySQLConnector()
+                $mySQLConnector->getConnection()
             ),
             new VariablesWrapper()
         );

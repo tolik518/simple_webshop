@@ -10,18 +10,23 @@ class MySQLProductOverviewLoader
 
     public function getProducts(): array
     {
-        return [
-            [
-                'id' => 1,
-                'group' => 0,
-                'productname'=> 'Flyer, versch. Größen',
-                'productshortdesc' => 'A4/A5/A6/DINlang uvm'
-            ],
-            [
-                'id' => 2,
-                'productname'=> 'Testartikel',
-                'productshortdesc' => 'Testbeschreibung'
-            ]
-        ];
+       $sql = $this->mySQLConnector->prepare('SELECT *
+                                                    FROM webshop.product;');
+
+        $sql->execute();
+        $results = $sql->fetchAll();
+
+        $productList = [];
+        foreach ($results as $result)
+        {
+            $productList[] = Product::set(
+                (int)$result['product_id'],
+                ProductName::fromString($result['name']),
+                ProductDesc::fromString($result['description']),
+                ProductDesc::fromString($result['short_description']),
+                ProductDetail::fromString($result['details'])
+            );
+        }
+        return $productList;
     }
 }

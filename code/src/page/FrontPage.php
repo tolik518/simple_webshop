@@ -12,7 +12,7 @@ class FrontPage
 
     public function getProductsAll(): string
     {
-        $products = $this->mySQLProductOverviewLoader->getProducts();
-        return $this->frontProjector->getHtml($products);
+        $productlist = $this->mySQLProductOverviewLoader->getProducts();
+        return $this->frontProjector->getHtml($productlist);
     }
 }

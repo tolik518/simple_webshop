@@ -4,10 +4,11 @@ namespace webShop;
 
 class FrontProjector
 {
-    public function getHtml(array $products): string
+    public function getHtml(array $productlist): string
     {
         $html = file_get_contents(HTML.'_index.html');
         $contentHTML = file_get_contents(HTML.'productoverview/productoverview.html');
+
         $productcardHTML = file_get_contents(HTML.'productoverview/_productcard.html');
 
         $headHTML   = file_get_contents(HTML.'_head.html');
@@ -21,18 +22,19 @@ class FrontProjector
         $html = str_replace('%%CONTENT%%', $contentHTML, $html);
         $html = str_replace('%%FOOTER%%', $footerHTML, $html);
 
-        $productsHTML = "";
-        foreach($products as $product)
+        $productCards = '';
+        /** @var $product Product */
+        foreach($productlist as $product)
         {
-            $productsHTML .= $productcardHTML;
-            $productsHTML = str_replace('%%PRODUCTID%%',        $product['id'], $productsHTML);
-            $productsHTML = str_replace('%%PRODUCTNAME%%',      $product['productname'], $productsHTML);
-            $productsHTML = str_replace('%%PRODUCTSHORTDESC%%', $product['productshortdesc'], $productsHTML);
-
+            $productCard = $productcardHTML;
+            $productCard = str_replace('%%PRODUCTID%%',        $product->getProductID(), $productCard);
+            $productCard = str_replace('%%IMAGE%%',     $product->getProductImage(1), $productCard);
+            $productCard = str_replace('%%PRODUCTNAME%%',      $product->getProductName(),      $productCard);
+            $productCard = str_replace('%%PRODUCTSHORTDESC%%', ProductDesc::toHTML($product->getProductShortDesc()), $productCard);
+            $productCards .= $productCard;
         }
 
-        $html = str_replace('%%PRODUCTS%%', $productsHTML, $html);
-
+        $html = str_replace('%%PRODUCTS%%', $productCards, $html);
         return $html;
     }
 }
