@@ -12,13 +12,13 @@ class MySQLProductOverviewLoader
     {
         return [
             [
-                'id' => 2,
+                'id' => 1,
                 'group' => 0,
                 'productname'=> 'Flyer, versch. Größen',
                 'productshortdesc' => 'A4/A5/A6/DINlang uvm'
             ],
             [
-                'id' => 1,
+                'id' => 2,
                 'productname'=> 'Testartikel',
                 'productshortdesc' => 'Testbeschreibung'
             ]

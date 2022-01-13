@@ -10,16 +10,24 @@ class Factory
             new Router(
                 $this->createAdminDashboardPage(),
                 $this->createFrontPage(),
+                $this->createProductPage(),
                 new SessionManager()
             ),
             new VariablesWrapper()
         );
     }
 
-    public function createAdminDashboardPage()
+    public function createAdminDashboardPage(): AdminDashboardPage
     {
         return new AdminDashboardPage(
             new AdminDashboardProjector()
+        );
+    }
+
+    public function createProductPage(): ProductPage
+    {
+        return new ProductPage(
+            new ProductProjector()
         );
     }
 
