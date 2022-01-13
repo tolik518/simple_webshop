@@ -2,8 +2,6 @@
 
 namespace webShop;
 
-use JetBrains\PhpStorm\Pure;
-
 class FrontPage
 {
     public function __construct(

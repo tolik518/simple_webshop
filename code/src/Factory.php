@@ -8,10 +8,18 @@ class Factory
     {
         return new Application(
             new Router(
+                $this->createAdminDashboardPage(),
                 $this->createFrontPage(),
                 new SessionManager()
             ),
             new VariablesWrapper()
+        );
+    }
+
+    public function createAdminDashboardPage()
+    {
+        return new AdminDashboardPage(
+            new AdminDashboardProjector()
         );
     }
 
