@@ -226,3 +226,103 @@ a {
 #productOverviewPage .productcard .infoAll .price {
     margin-top: 0.5rem;
 }
+
+#productPage {
+    margin-top: 1rem;
+    border: 1px solid #DDDDDD;
+    padding: 1rem;
+    background-color: white;
+    box-shadow: 0 2px 2.2px rgba(0, 0, 0, 0.123), 0 -0.5px 2.2px rgba(0, 0, 0, 0.123);
+}
+#productPage .product {
+    display: flex;
+}
+#productPage .product .productimageMainWrapper {
+    width: min-content;
+    padding-right: 0.5rem;
+}
+#productPage .product .productimageMainWrapper .productimageMain {
+    height: auto;
+}
+#productPage .product .productInfo {
+    display: flex;
+    flex-direction: column;
+    width: -webkit-fill-available;
+}
+#productPage .product .productInfo textarea {
+    width: -webkit-fill-available;
+    border: 1px solid #EEEEEE;
+    height: 4rem;
+}
+#productPage .product .productInfo #adminProductShortDesc {
+    width: -webkit-fill-available;
+    border: 1px solid #EEEEEE;
+    height: 1.5rem;
+    margin-block: 0.5rem;
+}
+#productPage .product .productInfo #adminProductSend {
+    width: fit-content;
+    margin-top: 10px;
+}
+#productPage .product .productInfo #adminProductDetail {
+    margin-block: 0.5rem;
+}
+#productPage .product .productInfo input[type=number] {
+    border: none;
+    -moz-appearance: textfield;
+    appearance: textfield;
+    margin: 0;
+    width: 2rem;
+}
+#productPage .product .productInfo input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+#productPage .product .productName {
+    font-weight: 500;
+    font-size: 2rem;
+    padding-bottom: 0.8rem;
+}
+#productPage .product .productimageMain {
+    padding-right: 0.5rem;
+    width: 20rem;
+    min-width: 20rem;
+    display: inline-flex;
+    height: 100%;
+}
+#productPage .product .productimages {
+    padding-block: 0.8rem;
+    display: flex;
+    align-items: center;
+}
+#productPage .product .productimages .productimageSmallWrapper {
+    border: 1px solid #DDDDDD;
+    padding: 1px;
+    width: 5rem;
+    height: 5rem;
+    margin: 1px;
+    display: inline-flex;
+    align-items: center;
+}
+#productPage .product .productimages .productimageSmallWrapper .productimageSmall {
+    width: 5rem;
+}
+#productPage .product .productimages .productimageSmallWrapper:hover {
+    z-index: 99999;
+    width: 25rem;
+    border: none;
+}
+#productPage .product .productimages .productimageSmallWrapper:hover .productimageSmall {
+    width: 25rem;
+    padding: 1px;
+    border: 1px solid #DDDDDD;
+    background-color: white;
+}
+#productPage .product .productDetails {
+    font-size: 0.8rem;
+    color: #555555;
+    padding-bottom: 0.8rem;
+}
+#productPage .product .productPrice {
+    float: right;
+}

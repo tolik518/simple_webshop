@@ -4,7 +4,7 @@ namespace webShop;
 
 class FrontProjector
 {
-    public function getHtml($products): string
+    public function getHtml(array $products): string
     {
         $html = file_get_contents(HTML.'_index.html');
         $contentHTML = file_get_contents(HTML.'productoverview/productoverview.html');

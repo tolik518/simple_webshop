@@ -4,7 +4,7 @@ namespace webShop;
 
 class ProductProjector
 {
-    public function getHtml(): string
+    public function getHtml(Product $product): string
     {
         $html = file_get_contents(HTML.'_index.html');
         $contentHTML = file_get_contents(HTML.'product/product.html');

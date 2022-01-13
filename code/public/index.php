@@ -13,7 +13,8 @@ define('HTML',          ROOT  . 'html'    . DR);
 define('DATABASE',       APP  . 'database'. DR);
 define('PUBLICFOLDER',  ROOT  . 'public'  . DR);
 define('PRODUCTIMAGES',   PUBLICFOLDER .
-                           DR . 'img'  .
+                           DR . 'assets'  .
+                           DR . 'img'     .
                            DR . 'product' . DR);
 
 require_once VENDOR.'autoload.php';
