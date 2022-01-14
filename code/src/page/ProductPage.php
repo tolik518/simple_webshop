@@ -14,6 +14,6 @@ class ProductPage
         $product = $this->mySQLProductLoader->getProductByProductID($productid);
         $attributes = $this->mySQLProductLoader->getAttributesByProductID($productid);
 
-        return $this->productProjector->getHtml($product);
+        return $this->productProjector->getHtml($product, $attributes);
     }
 }

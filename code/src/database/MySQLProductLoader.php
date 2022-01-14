@@ -43,7 +43,7 @@ class MySQLProductLoader
         $results = $sql->fetchAll(PDO::FETCH_COLUMN);
 
         foreach ($results as $attribute_id){
-            $sql = $this->mySQLConnector->prepare('SELECT attributes.attribute_id, attributes.name, attribute_types.value, attribute_types.price
+            $sql = $this->mySQLConnector->prepare('SELECT attributes.attribute_id, attributes.name, attributes.description, attribute_types.value, attribute_types.price
                                                          FROM webshop.attributes
                                                          INNER JOIN webshop.attributes_attribute_types
                                                          ON attributes.attribute_id = attributes_attribute_types.attribute_id 
@@ -56,10 +56,7 @@ class MySQLProductLoader
             $currentattribute = $sql->fetchAll(PDO::FETCH_ASSOC);
             $attribute[$currentattribute[0]['name']] = $currentattribute; //PDO::FETCH_ASSOC
         }
-
-        echo "<pre>";
-        var_dump($attribute);
-        die();
+        //TODO: make a VO
 
         return $attribute;
     }
