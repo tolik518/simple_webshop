@@ -40,7 +40,7 @@ class MySQLProductLoader
         $sql->bindValue(':product_id', $productid);
 
         $sql->execute();
-        $results = $sql->fetchAll(PDO::FETCH_COLUMN);
+        $results = $sql->fetchAll(PDO::FETCH_COLUMN); //PDO::FETCH_COLUMN
 
         foreach ($results as $attribute_id){
             $sql = $this->mySQLConnector->prepare('SELECT attributes.attribute_id, attributes.name, attributes.description, attribute_types.value, attribute_types.price
@@ -50,7 +50,7 @@ class MySQLProductLoader
                                                          INNER JOIN webshop.attribute_types
                                                          ON attributes_attribute_types.attribute_types_id = attribute_types.attribute_types_id
                                                          WHERE attributes.attribute_id = :attribute_id;');
-            $sql->bindValue(':attribute_id', $attribute_id);
+            $sql->bindValue(':attribute_id',$attribute_id);
 
             $sql->execute();
             $currentattribute = $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -59,5 +59,19 @@ class MySQLProductLoader
         //TODO: make a VO
 
         return $attribute;
+    }
+
+    public function getStandartConfigurationByProductID(int $productid){
+        $sql = $this->mySQLConnector->prepare('SELECT attribute_types.name, attribute_types.value
+                                                     FROM webshop.product_attributes
+                                                     INNER JOIN webshop.attribute_types
+                                                     ON product_attributes.standart_attribute_type_id = attribute_types.attribute_types_id 
+                                                     WHERE product_id = :product_id;');
+        $sql->bindValue(':product_id', $productid);
+
+        $sql->execute();
+        $results = $sql->fetchAll(PDO::FETCH_KEY_PAIR); //PDO::FETCH_COLUMN //PDO::FETCH_ASSOC
+
+        return $results;
     }
 }

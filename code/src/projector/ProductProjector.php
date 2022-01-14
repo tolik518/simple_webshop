@@ -4,7 +4,7 @@ namespace webShop;
 
 class ProductProjector
 {
-    public function getHtml(Product $product, array $attributes): string
+    public function getHtml(Product $product, array $attributes, array $standartconfig): string
     {
         $html = file_get_contents(HTML.'_index.html');
         $contentHTML = file_get_contents(HTML.'product/product.html');
@@ -19,16 +19,26 @@ class ProductProjector
 
         $configurator = '';
 
+        //Für jedes attribut ein punkt
         foreach ($attributes as $attribute){
             $currentattribute = $newattribute;
             $currentattribute = str_replace('%%ATTRIBUTENAME%%'   ,  $attribute[0]['name'], $currentattribute);
             $currentattribute = str_replace('%%ATTRIBUTEDETAILS%%',  $attribute[0]['description'],$currentattribute);
 
             $setting = '';
-            foreach ($attribute as $attributesetting) {
+
+            //für jede Auswahlmöglichkeit ein unterpunkt
+            foreach ($attribute as $attributesetting){
                 $currentsetting = $newattributesetting;
-                $currentsetting = str_replace('%%ATTRIBUTENAME%%'   ,  $attributesetting['name'], $currentsetting);
+                $currentsetting = str_replace('%%ATTRIBUTENAME%%'    ,  $attributesetting['name'], $currentsetting);
                 $currentsetting = str_replace('%%ATTRIBUTEVALUE%%'   ,  $attributesetting['value'], $currentsetting);
+
+                //gucke das Attribut in der Standartconfig und setzte den
+                if ($standartconfig[$attributesetting['name']] == $attributesetting['value']){
+                    $currentsetting = str_replace('%%ATTRIBUTESELECTED%%',  "checked", $currentsetting);
+                }
+                $currentsetting = str_replace('%%ATTRIBUTESELECTED%%',  "", $currentsetting);
+
                 $setting .= $currentsetting;
             }
 
