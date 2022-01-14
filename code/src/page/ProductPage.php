@@ -11,7 +11,9 @@ class ProductPage
 
     public function getProductByID($productid): string
     {
-        $product = $this->mySQLProductLoader->getProductByID($productid);
+        $product = $this->mySQLProductLoader->getProductByProductID($productid);
+        $attributes = $this->mySQLProductLoader->getAttributesByProductID($productid);
+
         return $this->productProjector->getHtml($product);
     }
 }
