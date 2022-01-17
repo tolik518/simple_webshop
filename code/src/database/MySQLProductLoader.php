@@ -21,18 +21,24 @@ class MySQLProductLoader
         $results = $sql->fetchAll();
         $result = $results[0];
 
+        $attributes     = $this->getAttributesByProductID($productid);
+
         $product = Product::set(
             (int)$result['product_id'],
             ProductName::fromString($result['name']),
             ProductDesc::fromString($result['description']),
             ProductDesc::fromString($result['short_description']),
             ProductDetail::fromString($result['details']),
+            $attributes
         );
 
         return $product;
     }
-
-    public function getAttributesByProductID(int $productid)
+    /**
+     * Returns array with Attribute-Objects for given $productid
+     * @return Attribute[]
+     */
+    private function getAttributesByProductID(int $productid): array
     {
         $sql = $this->mySQLConnector->prepare('SELECT attribute_id
                                                      FROM webshop.product_attributes
@@ -54,14 +60,30 @@ class MySQLProductLoader
 
             $sql->execute();
             $currentattribute = $sql->fetchAll(PDO::FETCH_ASSOC);
-            $attribute[$currentattribute[0]['name']] = $currentattribute; //PDO::FETCH_ASSOC
+
+            $attribute[$currentattribute[0]["name"]] = Attribute::set($currentattribute);
         }
-        //TODO: make a VO
+
+        $standartconfig = $this->getStandartConfigurationByProductID($productid);
+        foreach ($attribute as $attributename => $attributeobject){
+            $attributeobject->setStandart($standartconfig[$attributename]);
+        }
 
         return $attribute;
     }
-
-    public function getStandartConfigurationByProductID(int $productid){
+    /**
+     * Returns array with attribute-names as key and
+     * attribute-value as value. <br>
+     * Example return: <code>
+     * array(2) {
+     *      ["Auflage"] => string(4) "1000"
+     *      ["Format"] => string(2) "A5"
+     * }
+     * </code>
+     * @return string[]
+     */
+    private function getStandartConfigurationByProductID(int $productid): array
+    {
         $sql = $this->mySQLConnector->prepare('SELECT attribute_types.name, attribute_types.value
                                                      FROM webshop.product_attributes
                                                      INNER JOIN webshop.attribute_types
@@ -71,6 +93,7 @@ class MySQLProductLoader
 
         $sql->execute();
         $results = $sql->fetchAll(PDO::FETCH_KEY_PAIR); //PDO::FETCH_COLUMN //PDO::FETCH_ASSOC
+
 
         return $results;
     }

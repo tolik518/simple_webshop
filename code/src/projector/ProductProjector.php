@@ -4,7 +4,7 @@ namespace webShop;
 
 class ProductProjector
 {
-    public function getHtml(Product $product, array $attributes, array $standartconfig): string
+    public function getHtml(Product $product): string
     {
         $html = file_get_contents(HTML.'_index.html');
         $contentHTML = file_get_contents(HTML.'product/product.html');
@@ -13,28 +13,31 @@ class ProductProjector
 
 
         $contentHTML = str_replace('%%PRODUCTIMAGE%%',  $product->getProductImage(1), $contentHTML);
-        $contentHTML = str_replace('%%PRODUCTNAME%%',    $product->getProductName(), $contentHTML);
-        $contentHTML = str_replace('%%PRODUCTDESC%%',    ProductDesc::toHTML($product->getProductDesc()), $contentHTML);
-        $contentHTML = str_replace('%%PRODUCTDETAILS%%', ProductDetail::toHTML($product->getProductDetail()), $contentHTML);
+        $contentHTML = str_replace('%%PRODUCTNAME%%',   $product->getProductName(), $contentHTML);
+        $contentHTML = str_replace('%%PRODUCTDESC%%',   ProductDesc::toHTML($product->getProductDesc()), $contentHTML);
+        $contentHTML = str_replace('%%PRODUCTDETAILS%%',ProductDetail::toHTML($product->getProductDetail()), $contentHTML);
 
         $configurator = '';
 
         //Für jedes attribut ein punkt
-        foreach ($attributes as $attribute){
+        /** @var Attribute $attribute */
+        foreach ($product->getAttributes() as $attribute){
             $currentattribute = $newattribute;
-            $currentattribute = str_replace('%%ATTRIBUTENAME%%'   ,  $attribute[0]['name'], $currentattribute);
-            $currentattribute = str_replace('%%ATTRIBUTEDETAILS%%',  $attribute[0]['description'],$currentattribute);
+            $currentattribute = str_replace('%%ATTRIBUTENAME%%'   ,  $attribute->getName(), $currentattribute);
+            $currentattribute = str_replace('%%ATTRIBUTEDETAILS%%',  $attribute->getDescription(), $currentattribute);
 
             $setting = '';
 
             //für jede Auswahlmöglichkeit ein unterpunkt
-            foreach ($attribute as $attributesetting){
+            $attributesettings = $attribute->getPriceForValueArray();
+            foreach ($attributesettings as $attributevalue => $attributeprice){
                 $currentsetting = $newattributesetting;
-                $currentsetting = str_replace('%%ATTRIBUTENAME%%'    ,  $attributesetting['name'], $currentsetting);
-                $currentsetting = str_replace('%%ATTRIBUTEVALUE%%'   ,  $attributesetting['value'], $currentsetting);
+                $currentsetting = str_replace('%%ATTRIBUTENAME%%' ,  $attribute->getName(), $currentsetting);
+                $currentsetting = str_replace('%%ATTRIBUTEVALUE%%',  $attributevalue, $currentsetting);
+                $currentsetting = str_replace('%%ATTRIBUTEPRICE%%',  $attributeprice, $currentsetting);
 
                 //gucke das Attribut in der Standartconfig und setzte den
-                if ($standartconfig[$attributesetting['name']] == $attributesetting['value']){
+                if ($attributevalue == $attribute->getStandart()){
                     $currentsetting = str_replace('%%ATTRIBUTESELECTED%%',  "checked", $currentsetting);
                 }
                 $currentsetting = str_replace('%%ATTRIBUTESELECTED%%',  "", $currentsetting);

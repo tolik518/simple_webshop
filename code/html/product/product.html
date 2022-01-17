@@ -8,11 +8,22 @@
 
             <div class="productDetails">%%PRODUCTDETAILS%%</div>
 
-            <form>
+            <form method="post">
                 <div class="productConfigurator">
                     %%CONFIGURATOR%%
+                    <details class="configPointUpload" id="uploadImage">
+                        <summary><span class="attributeName">Bild Hochladen</span><span class="attributeDetails">Laden Sie hier ihr ganz individuelles Motiv hoch!</span><span class="attributeSelected">Noch kein Bild</span></summary>
+                        <div>
+                            <section class="attributeConfig">
+                                %%ATTRIBUTECONTENT%%
+                            </section>
+                        </div>
+                    </details>
                 </div>
-                <input type="submit" value="In den Warenkorb">
+                <script type="module" src="/js/productprice.js"></script>
+                <div class="productBottomSection">
+                    <span id="currentPrice">0,00€</span> <input type="submit" value="In den Warenkorb">
+                </div>
             </form>
         </div>
     </div>

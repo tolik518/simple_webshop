@@ -8,11 +8,17 @@ class Product
         private ProductName   $productName,
         private ProductDesc   $productDesc,
         private ProductDesc   $productShortDesc,
-        private ProductDetail $productDetail
+        private ProductDetail $productDetail,
+        private array         $attributes
     ){}
 
-    public static function set($productId, $productName, $productDesc, $productShortDesc, $productDetail){
-        return new self($productId, $productName, $productDesc, $productShortDesc, $productDetail);
+    public static function set($productId, $productName, $productDesc, $productShortDesc, $productDetail, $attributes){
+        return new self($productId, $productName, $productDesc, $productShortDesc, $productDetail, $attributes);
+    }
+
+    public function getAttributes()
+    {
+        return $this->attributes;
     }
 
     public function getProductID()

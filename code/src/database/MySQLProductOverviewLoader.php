@@ -24,7 +24,8 @@ class MySQLProductOverviewLoader
                 ProductName::fromString($result['name']),
                 ProductDesc::fromString($result['description']),
                 ProductDesc::fromString($result['short_description']),
-                ProductDetail::fromString($result['details'])
+                ProductDetail::fromString($result['details']),
+                []  //Attribute sind leer, da unnötig an der Stelle
             );
         }
         return $productList;
