@@ -381,7 +381,7 @@ a {
     padding: 1rem;
 }
 
-button[type="submit"] {
+button{
     height: 2em;
     border-radius: 0px;
     width: auto;
@@ -393,7 +393,7 @@ button[type="submit"] {
     line-height: 0;
 }
 
-button[type="submit"]:hover {
+button:hover {
     background: white;
     color: rgb(255,90,105);
     border: 4px solid rgb(255,90,105);
@@ -521,4 +521,12 @@ div label:hover{
 .cartItemPrice {
     font-size: 15pt;
     font-weight: 200;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.removeFromCart {
+    cursor: pointer;
 }
