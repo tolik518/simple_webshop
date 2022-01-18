@@ -13,6 +13,8 @@ class ProductProjector
 
 
         $contentHTML = str_replace('%%PRODUCTIMAGE%%',  $product->getProductImage(1), $contentHTML);
+
+        $contentHTML = str_replace('%%PRODUCTID%%',     $product->getProductID(), $contentHTML);
         $contentHTML = str_replace('%%PRODUCTNAME%%',   $product->getProductName(), $contentHTML);
         $contentHTML = str_replace('%%PRODUCTDESC%%',   ProductDesc::toHTML($product->getProductDesc()), $contentHTML);
         $contentHTML = str_replace('%%PRODUCTDETAILS%%',ProductDetail::toHTML($product->getProductDetail()), $contentHTML);

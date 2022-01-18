@@ -336,7 +336,10 @@ a {
 
 .configPoint .attributeSelected, .configPointUpload .attributeSelected{
     width: 100px;
-
+    border: none;
+    cursor: pointer;
+    background: none;
+    pointer-events: none;
 }
 
 .configPoint .attributeName, .configPointUpload .attributeName{
@@ -448,4 +451,11 @@ div label:hover{
     font-size: 20px;
     color: rgba(46, 46, 46, 0.7);
     font-weight: 350;
+}
+
+#productimageMainDisplay{
+    border-radius: 10px;
+    border: 3px dashed lightgray;
+    width: 40rem;
+    height: auto;
 }

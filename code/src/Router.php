@@ -82,5 +82,10 @@ class Router
             return $response;
         })->setName('showProduct');
 
+        $app->post('/product/process_order', function (Request $request, Response $response, array $getArgs){
+            $outputHtml = $this->productPage->processOrder();
+            $response->getBody()->write($outputHtml);
+            return $response;
+        })->setName('showProduct');
     }
 }

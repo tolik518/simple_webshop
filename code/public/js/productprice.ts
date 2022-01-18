@@ -17,8 +17,8 @@ attributenames.forEach(function (attributeName){
 
 function setSelectedItemToHTML(attributenames){
     attributenames.forEach(function (attributeName){ //update the selected item in the "summary"
-        let currentSelected = document.getElementById("currentSelected"+attributeName);
-        currentSelected.innerHTML = getSelectedName("radio"+attributeName);
+        let currentSelected = <HTMLInputElement>document.getElementById("currentSelected"+attributeName);
+        currentSelected.value = getSelectedName("radio"+attributeName);
     })
 }
 

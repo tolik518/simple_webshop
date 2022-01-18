@@ -13,7 +13,7 @@ attributenames.forEach(function (attributeName) {
 function setSelectedItemToHTML(attributenames) {
     attributenames.forEach(function (attributeName) {
         var currentSelected = document.getElementById("currentSelected" + attributeName);
-        currentSelected.innerHTML = getSelectedName("radio" + attributeName);
+        currentSelected.value = getSelectedName("radio" + attributeName);
     });
 }
 function setPriceToHTML(price) {

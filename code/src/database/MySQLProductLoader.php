@@ -35,10 +35,13 @@ class MySQLProductLoader
         return $product;
     }
     /**
-     * Returns array with Attribute-Objects for given $productid
-     * @return Attribute[]
+     * Returns array with Attribute-Objects for given $productid <br>
+     * when bool $onlynames is set on true, it will return a string-array with <br>
+     * names of attributes from the product <br>
+     *
+     * @return Attribute[] | string[]
      */
-    private function getAttributesByProductID(int $productid): array
+    public function getAttributesByProductID(int $productid, bool $onlynames = false): array
     {
         $sql = $this->mySQLConnector->prepare('SELECT attribute_id
                                                      FROM webshop.product_attributes
@@ -48,31 +51,42 @@ class MySQLProductLoader
         $sql->execute();
         $results = $sql->fetchAll(PDO::FETCH_COLUMN); //PDO::FETCH_COLUMN
 
+
         foreach ($results as $attribute_id){
-            $sql = $this->mySQLConnector->prepare('SELECT attributes.attribute_id, attributes.name, attributes.description, attribute_types.value, attribute_types.price
-                                                         FROM webshop.attributes
-                                                         INNER JOIN webshop.attributes_attribute_types
-                                                         ON attributes.attribute_id = attributes_attribute_types.attribute_id 
-                                                         INNER JOIN webshop.attribute_types
-                                                         ON attributes_attribute_types.attribute_types_id = attribute_types.attribute_types_id
-                                                         WHERE attributes.attribute_id = :attribute_id;');
+            $sql = $this->mySQLConnector->prepare(
+                'SELECT attributes.attribute_id, attributes.name, attributes.description, attribute_types.value, attribute_types.price
+                       FROM webshop.attributes
+                       INNER JOIN webshop.attributes_attribute_types
+                       ON attributes.attribute_id = attributes_attribute_types.attribute_id 
+                       INNER JOIN webshop.attribute_types
+                       ON attributes_attribute_types.attribute_types_id = attribute_types.attribute_types_id
+                       WHERE attributes.attribute_id = :attribute_id;'
+            );
             $sql->bindValue(':attribute_id',$attribute_id);
 
             $sql->execute();
             $currentattribute = $sql->fetchAll(PDO::FETCH_ASSOC);
-
-            $attribute[$currentattribute[0]["name"]] = Attribute::set($currentattribute);
+            if($onlynames)
+            {
+                $attribute[] = $currentattribute[0]["name"];
+            } else
+            {
+                $attribute[$currentattribute[0]["name"]] = Attribute::set($currentattribute);
+            }
         }
 
-        $standartconfig = $this->getStandartConfigurationByProductID($productid);
-        foreach ($attribute as $attributename => $attributeobject){
-            $attributeobject->setStandart($standartconfig[$attributename]);
+        if(!$onlynames)
+        {
+            $standartconfig = $this->getStandartConfigurationByProductID($productid);
+            foreach ($attribute as $attributename => $attributeobject){
+                $attributeobject->setStandart($standartconfig[$attributename]);
+            }
         }
 
         return $attribute;
     }
     /**
-     * Returns array with attribute-names as key and
+     * Returns array with attribute-names as key and <br>
      * attribute-value as value. <br>
      * Example return: <code>
      * array(2) {

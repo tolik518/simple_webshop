@@ -30,7 +30,8 @@ class Factory
             new MySQLProductLoader(
                 $mySQLConnector->getConnection()
             ),
-            new ProductProjector()
+            new ProductProjector(),
+            new VariablesWrapper()
         );
     }
 

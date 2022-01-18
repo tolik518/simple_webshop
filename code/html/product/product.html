@@ -8,14 +8,19 @@
 
             <div class="productDetails">%%PRODUCTDETAILS%%</div>
 
-            <form method="post">
+            <form action="/product/process_order" method="post" enctype="multipart/form-data">
                 <div class="productConfigurator">
+                    <input name="id" type="number" style="display: none" value="%%PRODUCTID%%">
                     %%CONFIGURATOR%%
                     <details class="configPointUpload" id="uploadImage">
                         <summary><span class="attributeName">Bild Hochladen</span><span class="attributeDetails">Laden Sie hier ihr ganz individuelles Motiv hoch!</span><span class="attributeSelected">Noch kein Bild</span></summary>
                         <div>
                             <section class="attributeConfig">
-                                %%ATTRIBUTECONTENT%%
+                                <div class="productimageMainWrapper">
+                                    <input type="file" name="productimageMain" id="productimageMain" accept="image/*">
+                                    <img id="productimageMainDisplay" src="/assets/img/product/0_0.png" alt="">
+                                    <script type="module" src="/js/productimage.js"></script>
+                                </div>
                             </section>
                         </div>
                     </details>
