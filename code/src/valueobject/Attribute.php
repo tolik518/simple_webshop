@@ -8,8 +8,8 @@ class Attribute
     protected string $name;
     protected string $description;
 
-    protected array $valueprice;
-    protected string $standartvalue;
+    protected array  $valueprice;
+    protected string $selectedvalue;
 
     protected function __construct($configurations)
     {
@@ -27,14 +27,14 @@ class Attribute
         return new static($configurations);
     }
 
-    public function setStandart($value): void
+    public function setSelected($value): void
     {
-        $this->standartvalue = $value;
+        $this->selectedvalue = $value;
     }
 
-    public function getStandart(): string
+    public function getSelected(): string
     {
-        return $this->standartvalue;
+        return $this->selectedvalue;
     }
 
     public function getId(): int

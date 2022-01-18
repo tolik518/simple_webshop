@@ -4,7 +4,8 @@ namespace webShop;
 
 class Product
 {
-    private function __construct(private int $productId,
+    private function __construct(
+        private int $productId,
         private ProductName   $productName,
         private ProductDesc   $productDesc,
         private ProductDesc   $productShortDesc,

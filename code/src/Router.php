@@ -10,6 +10,7 @@ class Router
 {
     public function __construct(
         private AdminDashboardPage $adminDashboardPage,
+        private CartPage           $cartPage,
         private FrontPage          $frontPage,
         private ProductPage        $productPage,
         private SessionManager     $sessionManager
@@ -82,8 +83,13 @@ class Router
             return $response;
         })->setName('showProduct');
 
-        $app->post('/product/process_order', function (Request $request, Response $response, array $getArgs){
-            $outputHtml = $this->productPage->processOrder();
+        $app->post('/product/process_order', function (Request $request, Response $response){
+            $this->productPage->processOrder();
+            return $response->withHeader('Location', '/cart');
+        })->setName('showProduct');
+
+        $app->get('/cart', function (Request $request, Response $response){
+            $outputHtml = $this->cartPage->getProductsFromCart();
             $response->getBody()->write($outputHtml);
             return $response;
         })->setName('showProduct');

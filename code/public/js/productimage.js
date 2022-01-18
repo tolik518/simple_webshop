@@ -1,7 +1,5 @@
 var productimageMain = document.getElementById("productimageMain");
 var productimageMainDisplay = document.getElementById("productimageMainDisplay");
-var productimageMainDisplayCard = document.getElementById("productimageMainDisplayCard");
-var productimageMainDisplaySite = document.getElementById("productimageMainDisplaySite");
 //filesizecheck
 productimageMain.addEventListener("change", function () {
     var file = productimageMain.files[0];

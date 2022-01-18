@@ -15,6 +15,16 @@ class SessionManager
         }
     }
 
+    public function addToCart(ProductOrder $productOrder): void
+    {
+        $_SESSION['cart'] = $productOrder;
+    }
+
+    public function getCart()
+    {
+        return $_SESSION['cart'];
+    }
+
     public function isAuthenticated(): bool
     {
         return isset($_SESSION['username']);

@@ -1,7 +1,5 @@
 let productimageMain           = <HTMLInputElement>document.getElementById("productimageMain");
 let productimageMainDisplay    = <HTMLImageElement>document.getElementById("productimageMainDisplay");
-let productimageMainDisplayCard= <HTMLImageElement>document.getElementById("productimageMainDisplayCard");
-let productimageMainDisplaySite= <HTMLImageElement>document.getElementById("productimageMainDisplaySite");
 
 
 //filesizecheck

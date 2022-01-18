@@ -39,7 +39,7 @@ class ProductProjector
                 $currentsetting = str_replace('%%ATTRIBUTEPRICE%%',  $attributeprice, $currentsetting);
 
                 //gucke das Attribut in der Standartconfig und setzte den
-                if ($attributevalue == $attribute->getStandart()){
+                if ($attributevalue == $attribute->getSelected()){
                     $currentsetting = str_replace('%%ATTRIBUTESELECTED%%',  "checked", $currentsetting);
                 }
                 $currentsetting = str_replace('%%ATTRIBUTESELECTED%%',  "", $currentsetting);

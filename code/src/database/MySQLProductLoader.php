@@ -79,7 +79,7 @@ class MySQLProductLoader
         {
             $standartconfig = $this->getStandartConfigurationByProductID($productid);
             foreach ($attribute as $attributename => $attributeobject){
-                $attributeobject->setStandart($standartconfig[$attributename]);
+                $attributeobject->setSelected($standartconfig[$attributename]);
             }
         }
 

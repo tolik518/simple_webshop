@@ -7,6 +7,7 @@ class ProductPage
     public function __construct(
         private MySQLProductLoader $mySQLProductLoader,
         private ProductProjector $productProjector,
+        private SessionManager $sessionManager,
         private VariablesWrapper $variablesWrapper
     ){}
 
@@ -19,46 +20,15 @@ class ProductPage
 
     public function processOrder()
     {
-        /* Artikel ID 1
-         * array(8) {
-              ["radioAuflage"]=>
-              string(2) "30"
-              ["radioFormat"]=>
-              string(6) "0.0081"
-              ["radioFalz"]=>
-              string(6) "0.0001"
-              ["radioOrientierung"]=>
-              string(1) "0"
-              ["radioPapierdicke"]=>
-              string(6) "0.0002"
-              ["radioAbgerundete_Ecken"]=>
-              string(1) "0"
-              ["radioVersand"]=>
-              string(4) "5.99"
-              ["radioMaterial"]=>
-              string(6) "0.0011"
-            }
-         */
-        /* Artikel ID 3
-         * array(3) {
-              ["radioAuflage"]=>
-              string(2) "30"
-              ["radioVersand"]=>
-              string(4) "5.99"
-              ["radioMaterial"]=>
-              string(6) "0.0011"
-            }
-         */
-        $attributes_expected = $this->mySQLProductLoader->getAttributesByProductID($this->variablesWrapper->getPostParam("id"), true);
+        $id = $this->variablesWrapper->getPostParam("id");
+        $attributes_expected = $this->mySQLProductLoader->getAttributesByProductID($id, true);
 
         /* @var $expected string */
         foreach ($attributes_expected as $expected){
             $attributes[$expected] = $this->variablesWrapper->getPostParam(str_replace(" ","_",$expected));
         }
-        echo "<pre>";
-        var_dump($attributes);
-        echo "______________________<br>";
-        var_dump($_POST);
-        die();
+        $productorder = ProductOrder::set($id, $attributes);
+
+        $this->sessionManager->addToCart($productorder);
     }
 }
