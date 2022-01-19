@@ -7,7 +7,7 @@ use PDO;
 class MySQLProductLoader
 {
     public function __construct(
-        private MySQLConnector|PDO $mySQLConnector
+        private PDO $mySQLConnector
     ){}
     
     public function getProductByProductID(int $productid): Product

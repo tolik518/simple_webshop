@@ -52,7 +52,7 @@ class Attribute
         return $this->description;
     }
 
-    public function getPriceForValue(string $value): int
+    public function getPriceForValue(string $value): float
     {
         return $this->valueprice[$value];
     }

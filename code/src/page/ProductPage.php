@@ -29,6 +29,6 @@ class ProductPage
         }
         $productorder = ProductOrder::set($id, $attributes);
 
-        $this->sessionManager->addToCart($productorder);
+        $this->sessionManager->addToCart($productorder, $id);
     }
 }

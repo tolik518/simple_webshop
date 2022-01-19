@@ -22,6 +22,11 @@ class Product
         return $this->attributes;
     }
 
+    public function getAttribute(string $attributename)
+    {
+        return $this->attributes[$attributename];
+    }
+
     public function getProductID()
     {
         return $this->productId;

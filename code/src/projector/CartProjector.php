@@ -4,11 +4,8 @@ namespace webShop;
 
 class CartProjector
 {
-    public function getHtml(array $productOrders): string
+    public function getHtml(array $productOrders, array $products, array $prices): string
     {
-        echo "<pre>";
-        var_dump($productOrders);
-        echo "</pre>";
         $html = file_get_contents(HTML.'_index.html');
 
         $contentHTML = file_get_contents(HTML.'cart/cart.html');
@@ -16,21 +13,26 @@ class CartProjector
 
         $cartproducts = "";
         /** @var $productOrder ProductOrder */
-        foreach ($productOrders as $productOrder){
+        foreach ($productOrders as $index => $productOrder)
+        {
             $cartproducts .= $newcartitem;
             $cartproducts = str_replace('%%CARTITEMS%%', "dings", $cartproducts);
 
             $configs = "";
             $newconfigpoint = file_get_contents(HTML.'cart/_configpoints.html');
-            foreach ($productOrder->getAttributes() as $name => $value) {
+            foreach ($productOrder->getAttributes() as $name => $value)
+            {
                 $configs .= $newconfigpoint;
                 $configs = str_replace('%%ATTRIBUTENAME%%',  $name, $configs);
                 $configs = str_replace('%%ATTRIBUTEVALUE%%', $value, $configs);
             }
+            $cartproducts = str_replace('%%ITEMPRICE%%', $prices[$index]."€", $cartproducts);
+
+            $cartproducts = str_replace('%%PRODUCTNAME%%', $products[$index]->getProductName(), $cartproducts);
+            $cartproducts = str_replace('%%PRODUCTIMAGE%%', $products[$index]->getProductImage(1), $cartproducts);
 
             $cartproducts = str_replace('%%CONFIGPOINTS%%', $configs, $cartproducts);
         }
-
         $contentHTML = str_replace('%%CARTITEMS%%', $cartproducts, $contentHTML);
 
         $headHTML   = file_get_contents(HTML.'_head.html');

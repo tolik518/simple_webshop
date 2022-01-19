@@ -15,9 +15,9 @@ class SessionManager
         }
     }
 
-    public function addToCart(ProductOrder $productOrder): void
+    public function addToCart(ProductOrder $productOrder, int $id): void
     {
-        $_SESSION['cart'] = $productOrder;
+        $_SESSION['cart'][$id] = $productOrder; //TODO: fix that up, $id has to be genuine, not productID
     }
 
     public function getCart()

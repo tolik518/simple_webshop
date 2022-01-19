@@ -29,6 +29,9 @@ class Factory
     {
         return new CartPage(
             new CartProjector(),
+            new MySQLProductLoader(
+                $mySQLConnector->getConnection()
+            ),
             new SessionManager(),
             new VariablesWrapper()
         );
