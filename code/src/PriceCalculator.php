@@ -41,6 +41,7 @@ class PriceCalculator
     {
         $prices = [];
         $auflage = [];
+
         /** @var $order ProductOrder */
         foreach ($productOrders as $index => $order)
         {

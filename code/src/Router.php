@@ -12,6 +12,7 @@ class Router
         private AdminDashboardPage $adminDashboardPage,
         private CartPage           $cartPage,
         private FrontPage          $frontPage,
+        private OrderedPage        $orderedPage,
         private ProductPage        $productPage,
         private SessionManager     $sessionManager
     ){}
@@ -83,15 +84,33 @@ class Router
             return $response;
         })->setName('showProduct');
 
-        $app->post('/product/process_order', function (Request $request, Response $response){
-            $this->productPage->processOrder();
+        $app->post('/product/addtocart', function (Request $request, Response $response){
+            $this->productPage->addItemToCart();
             return $response->withHeader('Location', '/cart');
-        })->setName('showProduct');
+        })->setName('addtocart');
 
         $app->get('/cart', function (Request $request, Response $response){
-            $outputHtml = $this->cartPage->getProductsFromCart();
+            $outputHtml = $this->cartPage->getCart();
             $response->getBody()->write($outputHtml);
             return $response;
-        })->setName('showProduct');
+        })->setName('showCart');
+
+        $app->post('/cart/deleteitem/{itemhash}', function (Request $request, Response $response,  array $getArgs){
+            $itemhash = $getArgs['itemhash'];
+            $this->sessionManager->deleteItemFromCart($itemhash);
+            return $response->withHeader('Location', '/cart');
+        })->setName('deleteItemFromCart');
+
+        $app->post('/cart/checkout', function (Request $request, Response $response){
+            $this->orderedPage->processOrder();
+            $this->sessionManager->deleteCart();
+            return $response->withHeader('Location', '/cart/checkout');
+        })->setName('checkout');
+
+        $app->get('/cart/checkout', function (Request $request, Response $response){
+            $outputHtml = $this->orderedPage->showPageAfterOrdered();
+            $response->getBody()->write($outputHtml);
+            return $response;
+        })->setName('checkout');
     }
 }

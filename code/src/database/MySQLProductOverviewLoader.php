@@ -5,7 +5,7 @@ namespace webShop;
 class MySQLProductOverviewLoader
 {
     public function __construct(
-        private MySQLConnector|\PDO $mySQLConnector
+        private \PDO $mySQLConnector
     ){}
 
     public function getProducts(): array

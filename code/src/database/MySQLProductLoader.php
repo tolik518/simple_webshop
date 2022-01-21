@@ -7,7 +7,7 @@ use PDO;
 class MySQLProductLoader
 {
     public function __construct(
-        private PDO $mySQLConnector
+        private \PDO $mySQLConnector
     ){}
     
     public function getProductByProductID(int $productid): Product
@@ -56,20 +56,23 @@ class MySQLProductLoader
             $sql = $this->mySQLConnector->prepare(
                 'SELECT attributes.attribute_id, attributes.name, attributes.description, attribute_types.value, attribute_types.price
                        FROM webshop.attributes
-                       INNER JOIN webshop.attributes_attribute_types
-                       ON attributes.attribute_id = attributes_attribute_types.attribute_id 
+                       INNER JOIN webshop.attributes2attribute_types
+                       ON attributes.attribute_id = attributes2attribute_types.attribute_id 
                        INNER JOIN webshop.attribute_types
-                       ON attributes_attribute_types.attribute_types_id = attribute_types.attribute_types_id
+                       ON attributes2attribute_types.attribute_types_id = attribute_types.attribute_types_id
                        WHERE attributes.attribute_id = :attribute_id;'
             );
             $sql->bindValue(':attribute_id',$attribute_id);
 
             $sql->execute();
             $currentattribute = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+
             if($onlynames)
             {
                 $attribute[] = $currentattribute[0]["name"];
-            } else
+            }
+            else
             {
                 $attribute[$currentattribute[0]["name"]] = Attribute::set($currentattribute);
             }

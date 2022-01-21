@@ -11,6 +11,7 @@ class Factory
                 $this->createAdminDashboardPage($mySQLConnector),
                 $this->createCartPage($mySQLConnector),
                 $this->createFrontPage($mySQLConnector),
+                $this->createOrderedPage($mySQLConnector),
                 $this->createProductPage($mySQLConnector),
                 new SessionManager()
             ),
@@ -35,6 +36,24 @@ class Factory
             new SessionManager(),
             new VariablesWrapper()
         );
+    }
+
+    public function createOrderedPage($mySQLConnector): OrderedPage
+    {
+        return new OrderedPage(
+          new MySQLOrder(
+              $mySQLConnector->getConnection()
+          ),
+          new OrderedProjector(),
+          new SessionManager(),
+          new VariablesWrapper()
+        );
+
+        /*
+        private MySQLOrder $mySQLOrder,
+        private OrderedProjector $orderedProjector,
+        private SessionManager $sessionManager,
+        private VariablesWrapper $variablesWrapper*/
     }
 
     public function createProductPage($mySQLConnector): ProductPage

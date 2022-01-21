@@ -15,9 +15,9 @@ class SessionManager
         }
     }
 
-    public function addToCart(ProductOrder $productOrder, int $id): void
+    public function addToCart(ProductOrder $productOrder, string $hash): void
     {
-        $_SESSION['cart'][$id] = $productOrder; //TODO: fix that up, $id has to be genuine, not productID
+        $_SESSION['cart'][$hash] = $productOrder;
     }
 
     public function getCart()
@@ -40,17 +40,20 @@ class SessionManager
         return $_SESSION['role'];
     }
 
-    public function logout(): void
+    public function deleteItemFromCart($hash)
+    {
+        unset($_SESSION["cart"][$hash]);
+    }
+
+    public function deleteCart()
+    {
+        $_SESSION['cart'] = [];
+    }
+
+    public function deleteAllSessions(): void
     {
         session_unset();
         session_destroy();
         setcookie('PHPSESSID',"",time()-3600,'/'); // old session will be overwritten in the cookie
-        /*
-        if(!headers_sent())
-        {
-            header("Refresh:0");
-            return 0;
-        }
-        echo "Bitte laden Sie die Seite neu";*/
     }
 }

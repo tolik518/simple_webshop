@@ -1,3 +1,6 @@
+<div id="productPathWrapper">
+    <span id="productPath"><a href="/">Start</a> &gt; <a href="/product/%%PRODUCTID%%">%%PRODUCTNAME%%</a></span>
+</div>
 <div id="productPage">
     <div class="product">
         <img class="productimageMain" src="/assets/img/product/%%PRODUCTIMAGE%%" alt="">
@@ -8,7 +11,7 @@
 
             <div class="productDetails">%%PRODUCTDETAILS%%</div>
 
-            <form action="/product/process_order" method="post" enctype="multipart/form-data">
+            <form action="/product/addtocart" method="post" enctype="multipart/form-data">
                 <div class="productConfigurator">
                     <input name="id" type="number" style="display: none" value="%%PRODUCTID%%">
                     %%CONFIGURATOR%%
@@ -24,6 +27,7 @@
                             </section>
                         </div>
                     </details>
+                    <script type="module" src="/js/closedetails.js"></script>
                 </div>
                 <script type="module" src="/js/productprice.js"></script>
                 <div class="productBottomSection">

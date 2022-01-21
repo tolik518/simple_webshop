@@ -11,12 +11,14 @@ class CartPage
         private VariablesWrapper   $variablesWrapper
     ){}
 
-    public function getProductsFromCart(): string
+    public function getCart(): string
     {
         $productOrders = $this->sessionManager->getCart();
 
-        //echo "<pre>";
-        //var_dump($productOrders);
+        if (!isset($productOrders) || count($productOrders) == 0)
+        {
+            return $this->cartProjector->getHtmlForEmpty();
+        }
 
         /** @var $productOrder ProductOrder */
         foreach ($productOrders as $productOrder)

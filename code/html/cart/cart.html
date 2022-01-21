@@ -1,4 +1,87 @@
+<div id="productPathWrapper">
+    <span id="productPath"><a href="/">Start</a> &gt; <a href="/cart">Warenkorb</a></span>
+</div>
 <div id="cart">
     %%CARTITEMS%%
-    <button type="submit" value="add"><i class="fa fa-shopping-cart"></i> Bestellen</button>
+    <details id="adressElement" open>
+        <summary></summary>
+        <div class="adressorloginWrapper">
+            <div class="loginorguest">
+                <button><i class="fa fa-sign-in-alt"></i> Einloggen</button>
+                oder als Gast bestellen
+            </div>
+            <div class="adressinput">
+                <form method="post" action="/cart/checkout" class="inputfields" id="adressForm">
+                    <label for="email">E-Mail*</label>
+                    <div class="textboxoutline">
+                        <i class="fas fa-at fa-1x fa-fw"></i>
+                        <input type="text" id="email" name="email" class="textbox" value="" required>
+                    </div>
+                    <label for="company">Firma</label>
+                    <div class="textboxoutline">
+                        <i class="fas fa-building fa-1x fa-fw"></i>
+                        <input type="text" id="company" name="company" class="textbox" value="">
+                    </div>
+                    <label for="firstname">Vorname</label>
+                    <div class="textboxoutline">
+                        <i class="fas fa-user fa-1x fa-fw"></i>
+                        <input type="text" id="firstname" name="firstname" class="textbox" value="">
+                    </div>
+                    <label for="lastname">Nachname*</label>
+                    <div class="textboxoutline">
+                        <i class="fas fa-signature fa-1x fa-fw"></i>
+                        <input type="text" id="lastname" name="lastname" class="textbox" value="" required>
+                    </div>
+                    <label for="street">Straße/Hausnummer*</label>
+                    <div class="textboxoutline">
+                        <i class="fas fa-home fa-1x fa-fw"></i>
+                        <input type="text" id="street" name="street" class="textbox" value="" required>
+                    </div>
+
+                    <div class="cityContainer">
+                        <div class="citycityContainer">
+                            <label for="city">Stadt*</label>
+                            <div class="textboxoutline">
+                                <i class="fas fa-city fa-1x fa-fw"></i>
+                                <input type="text" id="city" name="city" class="textbox" value="" required>
+                            </div>
+                        </div>
+                        <div class="citycityContainer">
+                            <label for="zipcode">Postleitzahl*</label>
+                            <div class="textboxoutline">
+                                <i class="fas fa-envelope fa-1x fa-fw"></i>
+                                <input type="text" id="zipcode" name="zipcode" class="textbox" value="" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <label for="state">Bundesland</label>
+                    <div class="textboxoutline">
+                        <i class="fas fa-map-marked fa-1x fa-fw"></i>
+                        <input type="text" id="state" name="state" class="textbox" value="">
+                    </div>
+                    <label for="country">Land*</label>
+                    <div class="textboxoutline">
+                        <i class="fas fa-globe-europe fa-1x fa-fw"></i>
+                        <select id="country" name="country" class="country">
+                            <option value="Deutschland" selected>Deutschland</option>
+                            <option value="Österreich">Österreich</option>
+                            <option value="Schweiz">Schweiz</option>
+                        </select>
+                    </div>
+                    <label for="phone">Telefonnummer*</label>
+                    <div class="textboxoutline">
+                        <i class="fas fa-phone fa-1x fa-fw"></i>
+                        <input type="text" id="phone" name="phone" class="textbox" value="" required>
+                    </div>
+                    <!--- %MESSAGE% --->
+                    <span><input type="checkbox" id="privacy" required><label for="privacy">Ich habe die Datenschutzbestimmungen gelesen und akzeptiere sie. *</label></span>
+                    <div class="req">* erforderliche Angabe</div>
+                </form>
+            </div>
+        </div>
+    </details>
+    <div class="productBottomSection">
+        <span id="currentPrice">%%TOTALPRICE%%</span> <button type="submit" form="adressForm" value="add"><i class="fa fa-shopping-cart"></i>Bestellen</button>
+    </div>
 </div>

@@ -10,6 +10,8 @@
   </div>
   <div class="cartItemPrice">
     %%ITEMPRICE%%
-    <button class="removeFromCart"><i class="fa fa-trash"></i></button>
+    <form action="/cart/deleteitem/%%PRODUCTID%%" method="post">
+      <button class="removeFromCart"><i class="fa fa-trash"></i></button>
+    </form>
   </div>
 </div>

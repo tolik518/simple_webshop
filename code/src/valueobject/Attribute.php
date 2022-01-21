@@ -13,7 +13,7 @@ class Attribute
 
     protected function __construct($configurations)
     {
-        $this->id = $configurations[0]["attribute_id"];
+        $this->id   = $configurations[0]["attribute_id"];
         $this->name = $configurations[0]["name"];
         $this->description = $configurations[0]["description"];
 
