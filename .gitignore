@@ -7,6 +7,7 @@
 
 .idea
 .temp
+phpunit.report.xml
 
 # User-specific stuff
 .idea/**/workspace.xml

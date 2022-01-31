@@ -4,6 +4,9 @@ namespace webShop;
 use PHPUnit\Framework\TestCase;
 use Slim\Factory\AppFactory;
 
+/**
+ * @covers \webShop\Router
+ */
 class RouterTest extends TestCase
 {
     protected $app;
@@ -19,7 +22,7 @@ class RouterTest extends TestCase
         $factory->createApplication($mySQLConnectorMock)->start($this->app);
     }
 
-    public function routesLoggedOut()
+    public function routesLoggedOut(): array
     {
         return [
             ["frontPage", "GET", "/"],
@@ -47,7 +50,7 @@ class RouterTest extends TestCase
      * @dataProvider routesLoggedOut
      * @runInSeparateProcess
      */
-    public function testRoutesLoggedOut($expectedPage, $routeMethod, $routeUri)
+    public function testRoutesLoggedOut($expectedPage, $routeMethod, $routeUri): void
     {
         $route = $this->app->getRouteCollector()->getRoutes()[
             $this->app
@@ -59,7 +62,7 @@ class RouterTest extends TestCase
         $this->assertSame($expectedPage,$route);
     }
 
-    public function routeArgs()
+    public function routeArgs(): array
     {
         return [
             ["0",   "/product/",         "productid", "GET"],
@@ -73,7 +76,8 @@ class RouterTest extends TestCase
      * @dataProvider routeArgs
      * @runInSeparateProcess
      */
-    public function testRouteArgs($id, $route, $argName, $method){
+    public function testRouteArgs($id, $route, $argName, $method): void
+    {
         $args = $this->app
             ->getRouteResolver()
             ->computeRoutingResults($route.$id, $method)

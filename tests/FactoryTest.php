@@ -6,7 +6,6 @@ use PHPUnit\Framework\TestCase;
 /**
  * @covers \webShop\Factory
  */
-
 class FactoryTest extends TestCase
 {
     //TODO: gemockte application aufrufen

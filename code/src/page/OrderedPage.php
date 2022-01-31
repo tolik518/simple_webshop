@@ -16,7 +16,7 @@ class OrderedPage
         return $this->orderedProjector->getHtml();
     }
 
-    public function processOrder()
+    public function processOrder(): void
     {
         try
         {

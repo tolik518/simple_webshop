@@ -3,7 +3,6 @@ declare(strict_types=1);
 namespace webShop;
 use Slim\Factory\AppFactory;
 
-
 // Directories
 const DR = DIRECTORY_SEPARATOR;
 define('ROOT',    dirname(__DIR__)   . DR);
@@ -20,6 +19,7 @@ define('PRODUCTIMAGES',   PUBLICFOLDER .
 require_once VENDOR.'autoload.php';
 
 //Programm
+session_start();
 $mySQLConnector = new MySQLConnector();
 
 $app = AppFactory::create();

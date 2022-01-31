@@ -17,7 +17,7 @@ class ProductPage
         return $this->productProjector->getHtml($product);
     }
 
-    public function addItemToCart()
+    public function addItemToCart(): void
     {
         $id = $this->variablesWrapper->getPostParam("id");
         $attributes_expected = $this->mySQLProductLoader->getAttributesByProductID($id, true);
@@ -28,6 +28,6 @@ class ProductPage
         }
         $productorder = ProductOrder::set($id, $attributes);
 
-        $this->sessionManager->addToCart($productorder, $productorder->getHash());
+        $this->sessionManager->addToCart($productorder);
     }
 }

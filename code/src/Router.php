@@ -26,7 +26,7 @@ class Router
         })->setName('frontPage');
 
         $app->group('/admin',   function (RouteCollectorProxy $group){
-            $group->get('',          function (Request $request, Response $response){
+            $group->get('',          function (Request $request, Response $response) {
                 $outputHtml = $this->adminDashboardPage->getPage();
                 $response->getBody()->write($outputHtml);
                 return $response;
