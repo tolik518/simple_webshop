@@ -30,38 +30,32 @@ class Router
                 $outputHtml = $this->adminDashboardPage->getPage();
                 $response->getBody()->write($outputHtml);
                 return $response;
-            });
+            })->setName('adminDashboard');
             $group->get('/login',    function (Request $request, Response $response) {
                 $response->getBody()->write("NOT IMPLEMENTED");
                 return $response;
-            });
+            })->setName('adminLogin');
             $group->get('/logout',   function (Request $request, Response $response) {
                 $response->getBody()->write("NOT IMPLEMENTED");
                 return $response;
-            });
+            })->setName('adminLogout');
             $group->group('/orders', function (RouteCollectorProxy $group) {
-                $group->get('/all',
-                    function (Request $request, Response $response) {
+                $group->get('/all',        function (Request $request, Response $response) {
                         $response->getBody()->write("NOT IMPLEMENTED");
                         return $response;
-                    });
-
-                $group->get('/open',
-                    function (Request $request, Response $response) {
+                    })->setName('adminOrdersAll');
+                $group->get('/open',       function (Request $request, Response $response) {
                         $response->getBody()->write("NOT IMPLEMENTED");
                         return $response;
-                    });
-
-                $group->get('/inprogress',
-                    function (Request $request, Response $response) {
+                    })->setName('adminOrdersOpen');
+                $group->get('/inprogress', function (Request $request, Response $response) {
                         $response->getBody()->write("NOT IMPLEMENTED");
                         return $response;
-                    });
-                $group->get('/closed',
-                    function (Request $request, Response $response) {
+                    })->setName('adminOrdersInprogress');
+                $group->get('/closed',     function (Request $request, Response $response) {
                         $response->getBody()->write("NOT IMPLEMENTED");
                         return $response;
-                    });
+                    })->setName('adminOrdersClosed');
             });
         });
 

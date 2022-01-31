@@ -22,21 +22,32 @@ class RouterTest extends TestCase
 
     }
 
-    public function RoutesLoggedOut()
+    public function routesLoggedOut()
     {
         return [
-            ["frontPage",          "GET", "/"],
-            ["showProduct",        "GET", "/product/0"],
-            ["addToCart",         "POST", "/product/addtocart"],
+            ["frontPage", "GET", "/"],
+
+            ["showProduct",  "GET", "/product/0"],
+            ["addToCart",   "POST", "/product/addtocart"],
+
             ["showCart",           "GET", "/cart"],
             ["deleteItemFromCart","POST", "/cart/deleteitem/0"],
             ["postCartCheckout",  "POST", "/cart/checkout"],
             ["getCartCheckout",    "GET", "/cart/checkout"],
+
+            ["adminDashboard",  "GET", "/admin"],
+            ["adminLogin",      "GET", "/admin/login"],
+            ["adminLogout",     "GET", "/admin/logout"],
+
+            ["adminOrdersAll",        "GET", "/admin/orders/all"],
+            ["adminOrdersOpen",       "GET", "/admin/orders/open"],
+            ["adminOrdersInprogress", "GET", "/admin/orders/inprogress"],
+            ["adminOrdersClosed",     "GET", "/admin/orders/closed"]
         ];
     }
 
     /**
-     * @dataProvider RoutesLoggedOut
+     * @dataProvider routesLoggedOut
      * @runInSeparateProcess
      */
     public function testRoutesLoggedOut($expectedPage, $routeMethod, $routeUri)
@@ -51,18 +62,18 @@ class RouterTest extends TestCase
         $this->assertSame($expectedPage,$route);
     }
 
-    public function RouteArgs()
+    public function routeArgs()
     {
         return [
-            ["0",     "/product/", "productid", "GET"],
-            ["100",   "/product/", "productid", "GET"],
-            ["100",   "/cart/deleteitem/", "itemhash", "POST"],
-            ["100",   "/cart/deleteitem/", "itemhash", "POST"]
+            ["0",   "/product/",         "productid", "GET"],
+            ["100", "/product/",         "productid", "GET"],
+            ["100", "/cart/deleteitem/", "itemhash",  "POST"],
+            ["100", "/cart/deleteitem/", "itemhash",  "POST"]
         ];
     }
 
     /**
-     * @dataProvider RouteArgs
+     * @dataProvider routeArgs
      * @runInSeparateProcess
      */
     public function testRouteArgs($id, $route, $argName, $method){
