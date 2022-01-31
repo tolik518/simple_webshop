@@ -4,7 +4,7 @@ namespace webShop;
 
 class Factory
 {
-    public function createApplication($mySQLConnector): Application
+    public function createApplication(MySQLConnector $mySQLConnector): Application
     {
         return new Application(
             new Router(
@@ -48,12 +48,6 @@ class Factory
           new SessionManager(),
           new VariablesWrapper()
         );
-
-        /*
-        private MySQLOrder $mySQLOrder,
-        private OrderedProjector $orderedProjector,
-        private SessionManager $sessionManager,
-        private VariablesWrapper $variablesWrapper*/
     }
 
     public function createProductPage($mySQLConnector): ProductPage

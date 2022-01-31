@@ -19,19 +19,23 @@ class Router
 
     public function setRoutes(\Slim\App $app): void
     {
-        $app->group('/admin', function (RouteCollectorProxy $group) {
-            $group->get('', function (Request $request, Response $response){
+        $app->get('/',          function (Request $request, Response $response){
+            $outputHtml = $this->frontPage->getProductsAll();
+            $response->getBody()->write($outputHtml);
+            return $response;
+        })->setName('frontPage');
+
+        $app->group('/admin',   function (RouteCollectorProxy $group){
+            $group->get('',          function (Request $request, Response $response){
                 $outputHtml = $this->adminDashboardPage->getPage();
                 $response->getBody()->write($outputHtml);
                 return $response;
             });
-
-            $group->get('/login', function (Request $request, Response $response) {
+            $group->get('/login',    function (Request $request, Response $response) {
                 $response->getBody()->write("NOT IMPLEMENTED");
                 return $response;
             });
-
-            $group->get('/logout', function (Request $request, Response $response) {
+            $group->get('/logout',   function (Request $request, Response $response) {
                 $response->getBody()->write("NOT IMPLEMENTED");
                 return $response;
             });
@@ -59,58 +63,42 @@ class Router
                         return $response;
                     });
             });
-            //testing middleware
-        })/*->add(function (Request $request, RequestHandler $handler) use ($app) {
-            $response = $handler->handle($request);
-            $content = (string) $response->getBody();
+        });
 
-            $response = $app->getResponseFactory()->createResponse();
-            $response->getBody()->write('before' . $content . '. after');
+        $app->group('/product', function (RouteCollectorProxy $group){
+            $group->get('/{productid}', function ( Request $request, Response $response,array $getArgs) {
+                $productid = $getArgs['productid'];
+                $outputHtml = $this->productPage->getProductByID($productid);
+                $response->getBody()->write($outputHtml);
+                return $response;
+            })->setName('showProduct');
+            $group->post('/addtocart',  function (Request $request, Response $response) {
+                    $this->productPage->addItemToCart();
+                    return $response->withHeader('Location', '/cart');
+                })->setName('addToCart');
+        });
 
-            return $response;
-        })*/;
-
-
-        $app->get('/', function (Request $request, Response $response){
-            $outputHtml = $this->frontPage->getProductsAll();
-            $response->getBody()->write($outputHtml);
-            return $response;
-        })->setName('frontPage');
-
-        $app->get('/product/{productid}', function (Request $request, Response $response, array $getArgs){
-            $productid = $getArgs['productid'];
-            $outputHtml = $this->productPage->getProductByID($productid);
-            $response->getBody()->write($outputHtml);
-            return $response;
-        })->setName('showProduct');
-
-        $app->post('/product/addtocart', function (Request $request, Response $response){
-            $this->productPage->addItemToCart();
-            return $response->withHeader('Location', '/cart');
-        })->setName('addtocart');
-
-        $app->get('/cart', function (Request $request, Response $response){
-            $outputHtml = $this->cartPage->getCart();
-            $response->getBody()->write($outputHtml);
-            return $response;
-        })->setName('showCart');
-
-        $app->post('/cart/deleteitem/{itemhash}', function (Request $request, Response $response,  array $getArgs){
-            $itemhash = $getArgs['itemhash'];
-            $this->sessionManager->deleteItemFromCart($itemhash);
-            return $response->withHeader('Location', '/cart');
-        })->setName('deleteItemFromCart');
-
-        $app->post('/cart/checkout', function (Request $request, Response $response){
-            $this->orderedPage->processOrder();
-            $this->sessionManager->deleteCart();
-            return $response->withHeader('Location', '/cart/checkout');
-        })->setName('checkout');
-
-        $app->get('/cart/checkout', function (Request $request, Response $response){
-            $outputHtml = $this->orderedPage->showPageAfterOrdered();
-            $response->getBody()->write($outputHtml);
-            return $response;
-        })->setName('checkout');
+        $app->group('/cart',    function (RouteCollectorProxy $group){
+            $group->get('',                        function (Request $request, Response $response){
+                $outputHtml = $this->cartPage->getCart();
+                $response->getBody()->write($outputHtml);
+                return $response;
+            })->setName('showCart');
+            $group->post('/deleteitem/{itemhash}', function (Request $request, Response $response,  array $getArgs){
+                $itemhash = $getArgs['itemhash'];
+                $this->sessionManager->deleteItemFromCart($itemhash);
+                return $response->withHeader('Location', '/cart');
+            })->setName('deleteItemFromCart');
+            $group->post('/checkout',              function (Request $request, Response $response){
+                $this->orderedPage->processOrder();
+                $this->sessionManager->deleteCart();
+                return $response->withHeader('Location', '/cart/checkout');
+            })->setName('postCartCheckout');
+            $group->get('/checkout',               function (Request $request, Response $response){
+                $outputHtml = $this->orderedPage->showPageAfterOrdered();
+                $response->getBody()->write($outputHtml);
+                return $response;
+            })->setName('getCartCheckout');
+        });
     }
 }
