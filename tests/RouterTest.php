@@ -6,12 +6,10 @@ use Slim\Factory\AppFactory;
 
 class RouterTest extends TestCase
 {
-
     protected $app;
 
     protected function setUp(): void
     {
-
         $mySQLConnectorMock = $this->getMockBuilder(MySQLConnector::class)
             ->disableOriginalConstructor()
             ->getMock();
@@ -19,7 +17,6 @@ class RouterTest extends TestCase
         $this->app = AppFactory::create();
         $factory = new Factory();
         $factory->createApplication($mySQLConnectorMock)->start($this->app);
-
     }
 
     public function routesLoggedOut()
@@ -53,11 +50,11 @@ class RouterTest extends TestCase
     public function testRoutesLoggedOut($expectedPage, $routeMethod, $routeUri)
     {
         $route = $this->app->getRouteCollector()->getRoutes()[
-        $this->app
-            ->getRouteResolver()
-            ->computeRoutingResults($routeUri, $routeMethod)
-            ->getRouteIdentifier()
-        ]->getName();
+            $this->app
+                ->getRouteResolver()
+                ->computeRoutingResults($routeUri, $routeMethod)
+                ->getRouteIdentifier()
+            ]->getName();
 
         $this->assertSame($expectedPage,$route);
     }

@@ -6,7 +6,6 @@ use PHPUnit\Framework\TestCase;
 /**
  * @covers \webShop\Name
  */
-
 final class NameTest extends TestCase
 {
     /**

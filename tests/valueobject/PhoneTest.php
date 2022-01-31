@@ -6,7 +6,6 @@ use PHPUnit\Framework\TestCase;
 /**
  * @covers \webShop\Phone
  */
-
 class PhoneTest extends TestCase
 {
     /**

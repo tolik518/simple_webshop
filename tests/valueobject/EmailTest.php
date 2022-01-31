@@ -8,7 +8,6 @@ use PHPUnit\Framework\TestCase;
 /**
  * @covers \webShop\Email
  */
-
 final class EmailTest extends TestCase
 {
     /**

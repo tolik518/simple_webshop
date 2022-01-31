@@ -6,7 +6,6 @@ use PHPUnit\Framework\TestCase;
 /**
  * @covers \webShop\Country
  */
-
 class CountryTest extends TestCase
 {
     /**

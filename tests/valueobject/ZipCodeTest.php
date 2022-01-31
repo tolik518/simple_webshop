@@ -6,7 +6,6 @@ use PHPUnit\Framework\TestCase;
 /**
  * @covers \webShop\ZipCode
  */
-
 class ZipCodeTest extends TestCase
 {
     /**
