@@ -22,7 +22,7 @@ class SessionManager
 
     public function getCart()
     {
-        return $_SESSION['cart'];
+        return $_SESSION['cart'] ?? [];
     }
 
     public function isAuthenticated(): bool

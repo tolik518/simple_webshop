@@ -20,7 +20,7 @@ class Router
     public function setRoutes(\Slim\App $app): void
     {
         $app->group('/admin', function (RouteCollectorProxy $group) {
-            $group->get('/', function (Request $request, Response $response){
+            $group->get('', function (Request $request, Response $response){
                 $outputHtml = $this->adminDashboardPage->getPage();
                 $response->getBody()->write($outputHtml);
                 return $response;
@@ -60,15 +60,15 @@ class Router
                     });
             });
             //testing middleware
-        })->add(function (Request $request, RequestHandler $handler) use ($app) {
+        })/*->add(function (Request $request, RequestHandler $handler) use ($app) {
             $response = $handler->handle($request);
-            $dateOrTime = (string) $response->getBody();
+            $content = (string) $response->getBody();
 
             $response = $app->getResponseFactory()->createResponse();
-            $response->getBody()->write('before' . $dateOrTime . '. after');
+            $response->getBody()->write('before' . $content . '. after');
 
             return $response;
-        });
+        })*/;
 
 
         $app->get('/', function (Request $request, Response $response){
