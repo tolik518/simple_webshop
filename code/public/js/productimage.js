@@ -13,6 +13,4 @@ productimageMain.addEventListener("change", function () {
             alert("Die gewählte Datei ist zu groß");
         }
     }
-    else {
-    }
 });

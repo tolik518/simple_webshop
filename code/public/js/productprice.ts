@@ -3,7 +3,8 @@ let attributenames: string[] = getAllAttributeNames();
 setPriceToHTML(calculatePrice());
 setSelectedItemToHTML(attributenames);
 
-attributenames.forEach(function (attributeName: string){
+attributenames.forEach(function (attributeName: string)
+{
     let radiobuttons = document.querySelectorAll('input[name="radio'+attributeName+'"]');
     radiobuttons.forEach(function (radio: HTMLInputElement)
     {
@@ -91,7 +92,6 @@ function getSelectedName(itemName: string): string
     radios.forEach(function (radio: HTMLInputElement){
         if (radio.checked) {
             name = radio.labels[0].innerHTML;
-            //radio.labels[0].innerHTML
         }
     })
     return name;

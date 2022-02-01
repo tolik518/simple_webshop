@@ -320,17 +320,7 @@ a {
 #productPage .product .productimages .productimageSmallWrapper .productimageSmall {
     width: 5rem;
 }
-#productPage .product .productimages .productimageSmallWrapper:hover {
-    z-index: 99999;
-    width: 25rem;
-    border: none;
-}
-#productPage .product .productimages .productimageSmallWrapper:hover .productimageSmall {
-    width: 25rem;
-    padding: 1px;
-    border: 1px solid #DDDDDD;
-    background-color: white;
-}
+
 #productPage .product .productDetails {
     font-size: 0.8rem;
     color: #555555;

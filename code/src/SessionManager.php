@@ -23,4 +23,5 @@ class SessionManager
     {
         $_SESSION['cart'] = [];
     }
+
 }

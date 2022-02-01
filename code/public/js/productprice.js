@@ -68,7 +68,6 @@ function getSelectedName(itemName) {
     radios.forEach(function (radio) {
         if (radio.checked) {
             name = radio.labels[0].innerHTML;
-            //radio.labels[0].innerHTML
         }
     });
     return name;

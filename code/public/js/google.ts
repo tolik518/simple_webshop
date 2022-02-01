@@ -1,9 +1,9 @@
+declare var google: any;
 // Initialize and add the map
 function initMap(): void {
     // The location of berlin
     const berlin = { lat: 52.518, lng: 13.1944 };
     // The map, centered at berlin
-    // @ts-ignore
     const map = new google.maps.Map(
         document.getElementById("map") as HTMLElement,
         {
@@ -14,7 +14,6 @@ function initMap(): void {
     );
 
     // The marker, positioned at berlin
-    // @ts-ignore
     const marker = new google.maps.Marker({
         position: berlin,
         map: map,
