@@ -23,12 +23,12 @@ function setPriceToHTML(price) {
 }
 function calculatePrice() {
     var attributes = getAllAttributeNames();
-    var attributescleaned = attributes.filter(function (elem) {
+    var attributesclean = attributes.filter(function (elem) {
         return elem != "Versand" && elem != "Auflage";
     });
     var priceForOneItem = 0;
     var fixedPrice = 0;
-    attributescleaned.forEach(function (attribute) {
+    attributesclean.forEach(function (attribute) {
         return priceForOneItem += getSelectedPrice("radio" + attribute);
     });
     fixedPrice = getSelectedPrice("radioVersand") + getSelectedPrice("radioAuflage");
@@ -64,12 +64,12 @@ function getSelectedPrice(itemName) {
 }
 function getSelectedName(itemName) {
     var radios = document.getElementsByName(itemName);
-    var value = "0";
+    var name = "none";
     radios.forEach(function (radio) {
         if (radio.checked) {
-            value = radio.labels[0].innerHTML;
+            name = radio.labels[0].innerHTML;
             //radio.labels[0].innerHTML
         }
     });
-    return value;
+    return name;
 }

@@ -1,9 +1,9 @@
-let attributenames = getAllAttributeNames();
+let attributenames: string[] = getAllAttributeNames();
 
 setPriceToHTML(calculatePrice());
 setSelectedItemToHTML(attributenames);
 
-attributenames.forEach(function (attributeName){
+attributenames.forEach(function (attributeName: string){
     let radiobuttons = document.querySelectorAll('input[name="radio'+attributeName+'"]');
     radiobuttons.forEach(function (radio: HTMLInputElement)
     {
@@ -15,30 +15,33 @@ attributenames.forEach(function (attributeName){
     })
 })
 
-function setSelectedItemToHTML(attributenames){
+function setSelectedItemToHTML(attributenames: string[])
+{
     attributenames.forEach(function (attributeName){ //update the selected item in the "summary"
         let currentSelected = <HTMLInputElement>document.getElementById("currentSelected"+attributeName);
         currentSelected.value = getSelectedName("radio"+attributeName);
     })
 }
 
-function setPriceToHTML(price: number){
+function setPriceToHTML(price: number)
+{
     let priceelem: HTMLElement = document.getElementById("currentPrice")
     let priceformatted: string = (Math.round(price * 100) / 100).toFixed(2) + "€";
     priceelem.innerHTML = priceformatted;
 }
 
-function calculatePrice(){
-    let attributes = getAllAttributeNames();
+function calculatePrice(): number
+{
+    let attributes: string[] = getAllAttributeNames();
 
-    let attributescleaned = attributes.filter(function (elem){
+    let attributesclean: string[] = attributes.filter(function (elem){
         return elem != "Versand" && elem != "Auflage";
     });
 
-    let priceForOneItem = 0;
-    let fixedPrice      = 0;
+    let priceForOneItem: number = 0;
+    let fixedPrice: number      = 0;
 
-    attributescleaned.forEach(attribute =>
+    attributesclean.forEach(attribute =>
         priceForOneItem += getSelectedPrice("radio"+attribute)
     );
 
@@ -47,10 +50,10 @@ function calculatePrice(){
     return (priceForOneItem * getItemCount() + fixedPrice);
 }
 
-function getItemCount()
+function getItemCount(): number
 {
     let radios: NodeListOf<HTMLElement> = document.getElementsByName("radioAuflage");
-    let value = 0;
+    let value: number = 0;
     radios.forEach(function (radio: HTMLInputElement){
         if (radio.checked) {
             value = Number(radio.labels[0].innerHTML);
@@ -59,11 +62,10 @@ function getItemCount()
     return value;
 }
 
-function getAllAttributeNames()
+function getAllAttributeNames(): string[]
 {
     let elements: HTMLCollectionOf<Element> = document.getElementsByClassName("configPoint");
     let attributes: Array<string> = [];
-
     for(let i = 0; i < elements.length; i++){
         attributes.push(elements[i].id);
     }
@@ -73,7 +75,7 @@ function getAllAttributeNames()
 function getSelectedPrice(itemName: string): number
 {
     let radios: NodeListOf<HTMLElement> = document.getElementsByName(itemName);
-    let value = 0;
+    let value: number = 0;
     radios.forEach(function (radio: HTMLInputElement){
         if (radio.checked) {
             value = Number(radio.value);
@@ -85,12 +87,12 @@ function getSelectedPrice(itemName: string): number
 function getSelectedName(itemName: string): string
 {
     let radios: NodeListOf<HTMLElement> = document.getElementsByName(itemName);
-    let value = "0";
+    let name: string = "none";
     radios.forEach(function (radio: HTMLInputElement){
         if (radio.checked) {
-            value = radio.labels[0].innerHTML;
+            name = radio.labels[0].innerHTML;
             //radio.labels[0].innerHTML
         }
     })
-    return value;
+    return name;
 }
