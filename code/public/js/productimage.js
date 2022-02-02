@@ -1,8 +1,9 @@
-var productimageMain = document.getElementById("productimageMain");
-var productimageMainDisplay = document.getElementById("productimageMainDisplay");
+"use strict";
+let productimageMain = document.getElementById("productimageMain");
+let productimageMainDisplay = document.getElementById("productimageMainDisplay");
 //filesizecheck
 productimageMain.addEventListener("change", function () {
-    var file = productimageMain.files[0];
+    let file = productimageMain.files[0];
     if (file) {
         if (file.size < 1999999) {
             var imageURL = URL.createObjectURL(file);

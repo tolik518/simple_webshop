@@ -9,6 +9,7 @@ class Factory
         return new Application(
             new Router(
                 $this->createAdminDashboardPage($mySQLConnector),
+                $this->createAdminLoginPage($mySQLConnector),
                 $this->createCartPage($mySQLConnector),
                 $this->createFrontPage($mySQLConnector),
                 $this->createOrderedPage($mySQLConnector),
@@ -16,6 +17,18 @@ class Factory
                 new SessionManager()
             ),
             new VariablesWrapper()
+        );
+    }
+
+    public function createAdminLoginPage($mySQLConnector): LoginPage
+    {
+        return new LoginPage(
+            new LoginProjector(),
+            new MySQLLogin(
+                $mySQLConnector->getConnection()
+            ),
+            new SessionManager(),
+            new VariablesWrapper(),
         );
     }
 

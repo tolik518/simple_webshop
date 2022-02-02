@@ -1,8 +1,9 @@
-var attributenames = getAllAttributeNames();
+"use strict";
+let attributenames = getAllAttributeNames();
 setPriceToHTML(calculatePrice());
 setSelectedItemToHTML(attributenames);
 attributenames.forEach(function (attributeName) {
-    var radiobuttons = document.querySelectorAll('input[name="radio' + attributeName + '"]');
+    let radiobuttons = document.querySelectorAll('input[name="radio' + attributeName + '"]');
     radiobuttons.forEach(function (radio) {
         radio.addEventListener("change", function () {
             setPriceToHTML(calculatePrice()); //Update the prices
@@ -12,31 +13,29 @@ attributenames.forEach(function (attributeName) {
 });
 function setSelectedItemToHTML(attributenames) {
     attributenames.forEach(function (attributeName) {
-        var currentSelected = document.getElementById("currentSelected" + attributeName);
+        let currentSelected = document.getElementById("currentSelected" + attributeName);
         currentSelected.value = getSelectedName("radio" + attributeName);
     });
 }
 function setPriceToHTML(price) {
-    var priceelem = document.getElementById("currentPrice");
-    var priceformatted = (Math.round(price * 100) / 100).toFixed(2) + "€";
+    let priceelem = document.getElementById("currentPrice");
+    let priceformatted = (Math.round(price * 100) / 100).toFixed(2) + "€";
     priceelem.innerHTML = priceformatted;
 }
 function calculatePrice() {
-    var attributes = getAllAttributeNames();
-    var attributesclean = attributes.filter(function (elem) {
+    let attributes = getAllAttributeNames();
+    let attributesclean = attributes.filter(function (elem) {
         return elem != "Versand" && elem != "Auflage";
     });
-    var priceForOneItem = 0;
-    var fixedPrice = 0;
-    attributesclean.forEach(function (attribute) {
-        return priceForOneItem += getSelectedPrice("radio" + attribute);
-    });
+    let priceForOneItem = 0;
+    let fixedPrice = 0;
+    attributesclean.forEach(attribute => priceForOneItem += getSelectedPrice("radio" + attribute));
     fixedPrice = getSelectedPrice("radioVersand") + getSelectedPrice("radioAuflage");
     return (priceForOneItem * getItemCount() + fixedPrice);
 }
 function getItemCount() {
-    var radios = document.getElementsByName("radioAuflage");
-    var value = 0;
+    let radios = document.getElementsByName("radioAuflage");
+    let value = 0;
     radios.forEach(function (radio) {
         if (radio.checked) {
             value = Number(radio.labels[0].innerHTML);
@@ -45,16 +44,16 @@ function getItemCount() {
     return value;
 }
 function getAllAttributeNames() {
-    var elements = document.getElementsByClassName("configPoint");
-    var attributes = [];
-    for (var i = 0; i < elements.length; i++) {
+    let elements = document.getElementsByClassName("configPoint");
+    let attributes = [];
+    for (let i = 0; i < elements.length; i++) {
         attributes.push(elements[i].id);
     }
     return attributes;
 }
 function getSelectedPrice(itemName) {
-    var radios = document.getElementsByName(itemName);
-    var value = 0;
+    let radios = document.getElementsByName(itemName);
+    let value = 0;
     radios.forEach(function (radio) {
         if (radio.checked) {
             value = Number(radio.value);
@@ -63,8 +62,8 @@ function getSelectedPrice(itemName) {
     return value;
 }
 function getSelectedName(itemName) {
-    var radios = document.getElementsByName(itemName);
-    var name = "none";
+    let radios = document.getElementsByName(itemName);
+    let name = "none";
     radios.forEach(function (radio) {
         if (radio.checked) {
             name = radio.labels[0].innerHTML;

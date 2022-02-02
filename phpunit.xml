@@ -19,16 +19,18 @@
       <directory suffix=".php">./code/src</directory>
     </include>
     <exclude>
-      <directory suffix=".php">./vendor/src/database</directory>
-      <directory suffix=".php">./vendor</directory>
-      <directory suffix=".php">../database/</directory>
-      <directory suffix=".php">../tests/</directory>
+      <directory suffix=".php">/code/vendor</directory>
+      <directory suffix=".php">/database/</directory>
+      <directory suffix=".php">/tests/</directory>
+      <directory suffix=".php">/docker/</directory>
     </exclude>
     <report>
       <clover outputFile="phpunit.coverage.xml"/>
     </report>
   </coverage>
+
   <logging>
     <junit outputFile="phpunit.report.xml"/>
   </logging>
+
 </phpunit>

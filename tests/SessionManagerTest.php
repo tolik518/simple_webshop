@@ -6,6 +6,7 @@ use Slim\Factory\AppFactory;
 
 /**
  * @covers \webShop\SessionManager
+ * @uses \webShop\ProductOrder
  */
 class SessionManagerTest extends TestCase
 {
@@ -20,7 +21,7 @@ class SessionManagerTest extends TestCase
         $productorder = ProductOrder::set(0, ["test", "test2"]);
 
         $sessionManager->addToCart($productorder);
-
+        //TODO: test schreiben
         self::assertTrue($sessionManager->getCart());
     }
 }

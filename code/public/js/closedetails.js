@@ -1,10 +1,11 @@
+"use strict";
 // https://stackoverflow.com/a/36994802/15139141
-var details = document.querySelectorAll("details");
+const details = document.querySelectorAll("details");
 // Add the onclick listeners.
-details.forEach(function (targetDetail) {
-    targetDetail.addEventListener("click", function () {
+details.forEach((targetDetail) => {
+    targetDetail.addEventListener("click", () => {
         // Close all the details that are not targetDetail.
-        details.forEach(function (detail) {
+        details.forEach((detail) => {
             if (detail !== targetDetail) {
                 detail.removeAttribute("open");
             }

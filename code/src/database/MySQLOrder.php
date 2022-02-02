@@ -33,12 +33,11 @@ class MySQLOrder
         $customer_id = $this->mySQLConnector->lastInsertId();
 
         $sql_new_order = $this->mySQLConnector->prepare(
-            'INSERT INTO webshop.orders(customer_id, ordered_at, price)
-                   VALUES (:customer_id, :ordered_at, :price);'
+            'INSERT INTO webshop.orders(customer_id, price)
+                   VALUES (:customer_id, :price);'
         );
 
         $sql_new_order->bindValue(':customer_id', $customer_id);
-        $sql_new_order->bindValue(':ordered_at',  time());
         $sql_new_order->bindValue(':price', 0.0);
         $sql_new_order->execute();
 
