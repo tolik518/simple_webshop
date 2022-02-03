@@ -8,6 +8,11 @@ use PHPUnit\Framework\TestCase;
  */
 class CompanyTest extends TestCase
 {
+    public function testConstruction() : void
+    {
+        self::assertInstanceOf(Company::class, Company::fromString("lol"));
+    }
+
     /**
      * @dataProvider goodCompanies
      */

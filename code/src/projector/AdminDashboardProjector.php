@@ -7,7 +7,7 @@ class AdminDashboardProjector
     public function getHtml(): string
     {
         $html = file_get_contents(HTML.'_index.html');
-        $contentHTML = "Admin Dashboard";
+        $contentHTML = file_get_contents(HTML.'admin/adminDashboard.html');
 
         $headHTML   = file_get_contents(HTML.'_head.html');
 

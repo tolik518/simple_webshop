@@ -36,7 +36,7 @@ class RouterTest extends TestCase
             ["getCartCheckout",    "GET", "/cart/checkout"],
 
             ["adminDashboard",  "GET", "/admin"],
-            ["login",      "GET", "/login"],
+            ["loginPage",      "GET", "/login"],
             ["logout",     "GET", "/logout"],
 
             ["adminOrdersAll",        "GET", "/admin/orders/all"],

@@ -15,12 +15,11 @@ class Factory
                 $this->createOrderedPage($mySQLConnector),
                 $this->createProductPage($mySQLConnector),
                 new SessionManager()
-            ),
-            new VariablesWrapper()
+            )
         );
     }
 
-    public function createAdminLoginPage($mySQLConnector): LoginPage
+    private function createAdminLoginPage($mySQLConnector): LoginPage
     {
         return new LoginPage(
             new LoginProjector(),
@@ -32,14 +31,14 @@ class Factory
         );
     }
 
-    public function createAdminDashboardPage($mySQLConnector): AdminDashboardPage
+    private function createAdminDashboardPage($mySQLConnector): AdminDashboardPage
     {
         return new AdminDashboardPage(
             new AdminDashboardProjector()
         );
     }
 
-    public function createCartPage($mySQLConnector): CartPage
+    private function createCartPage($mySQLConnector): CartPage
     {
         return new CartPage(
             new CartProjector(),
@@ -51,7 +50,7 @@ class Factory
         );
     }
 
-    public function createOrderedPage($mySQLConnector): OrderedPage
+    private function createOrderedPage($mySQLConnector): OrderedPage
     {
         return new OrderedPage(
           new MySQLOrder(
@@ -63,7 +62,7 @@ class Factory
         );
     }
 
-    public function createProductPage($mySQLConnector): ProductPage
+    private function createProductPage($mySQLConnector): ProductPage
     {
         return new ProductPage(
             new MySQLProductLoader(
@@ -75,7 +74,7 @@ class Factory
         );
     }
 
-    public function createFrontPage($mySQLConnector): FrontPage
+    private function createFrontPage($mySQLConnector): FrontPage
     {
        return new FrontPage(
             new FrontProjector(),

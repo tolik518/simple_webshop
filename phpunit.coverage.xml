@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1643789639">
-  <project timestamp="1643789639">
+<coverage generated="1643873726">
+  <project timestamp="1643873726">
     <file name="/home/developer/exampleProjects/webShop/code/src/Application.php">
       <class name="webShop\Application" namespace="global">
         <metrics complexity="2" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="0" elements="7" coveredelements="0"/>
@@ -16,117 +16,87 @@
     </file>
     <file name="/home/developer/exampleProjects/webShop/code/src/Factory.php">
       <class name="webShop\Factory" namespace="global">
-        <metrics complexity="6" methods="6" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="34" coveredstatements="0" elements="40" coveredelements="0"/>
+        <metrics complexity="7" methods="7" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="41" coveredstatements="41" elements="48" coveredelements="48"/>
       </class>
-      <line num="7" type="method" name="createApplication" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="9" type="stmt" count="0"/>
-      <line num="10" type="stmt" count="0"/>
-      <line num="11" type="stmt" count="0"/>
-      <line num="12" type="stmt" count="0"/>
-      <line num="13" type="stmt" count="0"/>
-      <line num="14" type="stmt" count="0"/>
-      <line num="15" type="stmt" count="0"/>
-      <line num="16" type="stmt" count="0"/>
-      <line num="18" type="stmt" count="0"/>
-      <line num="22" type="method" name="createAdminDashboardPage" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="24" type="stmt" count="0"/>
-      <line num="25" type="stmt" count="0"/>
-      <line num="29" type="method" name="createCartPage" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="31" type="stmt" count="0"/>
-      <line num="32" type="stmt" count="0"/>
-      <line num="33" type="stmt" count="0"/>
-      <line num="34" type="stmt" count="0"/>
-      <line num="36" type="stmt" count="0"/>
-      <line num="37" type="stmt" count="0"/>
-      <line num="41" type="method" name="createOrderedPage" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="43" type="stmt" count="0"/>
-      <line num="44" type="stmt" count="0"/>
-      <line num="45" type="stmt" count="0"/>
-      <line num="47" type="stmt" count="0"/>
-      <line num="48" type="stmt" count="0"/>
-      <line num="49" type="stmt" count="0"/>
-      <line num="53" type="method" name="createProductPage" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="55" type="stmt" count="0"/>
-      <line num="56" type="stmt" count="0"/>
-      <line num="57" type="stmt" count="0"/>
-      <line num="59" type="stmt" count="0"/>
-      <line num="60" type="stmt" count="0"/>
-      <line num="61" type="stmt" count="0"/>
-      <line num="65" type="method" name="createFrontPage" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="67" type="stmt" count="0"/>
-      <line num="68" type="stmt" count="0"/>
-      <line num="69" type="stmt" count="0"/>
-      <line num="70" type="stmt" count="0"/>
-      <line num="72" type="stmt" count="0"/>
-      <line num="75" type="stmt" count="0"/>
-      <metrics loc="74" ncloc="74" classes="1" methods="6" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="34" coveredstatements="0" elements="40" coveredelements="0"/>
-    </file>
-    <file name="/home/developer/exampleProjects/webShop/code/src/PriceCalculator.php">
-      <class name="webShop\PriceCalculator" namespace="global">
-        <metrics complexity="12" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="23" coveredstatements="0" elements="25" coveredelements="0"/>
-      </class>
-      <line num="10" type="method" name="calculatePriceForOrder" visibility="public" complexity="6" crap="42" count="0"/>
-      <line num="12" type="stmt" count="0"/>
-      <line num="13" type="stmt" count="0"/>
-      <line num="15" type="stmt" count="0"/>
-      <line num="17" type="stmt" count="0"/>
-      <line num="20" type="stmt" count="0"/>
-      <line num="21" type="stmt" count="0"/>
-      <line num="23" type="stmt" count="0"/>
-      <line num="25" type="stmt" count="0"/>
-      <line num="27" type="stmt" count="0"/>
-      <line num="29" type="stmt" count="0"/>
-      <line num="34" type="stmt" count="0"/>
-      <line num="40" type="method" name="calculatePrices" visibility="public" complexity="6" crap="42" count="0"/>
-      <line num="42" type="stmt" count="0"/>
-      <line num="43" type="stmt" count="0"/>
-      <line num="46" type="stmt" count="0"/>
-      <line num="48" type="stmt" count="0"/>
-      <line num="49" type="stmt" count="0"/>
-      <line num="52" type="stmt" count="0"/>
-      <line num="53" type="stmt" count="0"/>
-      <line num="55" type="stmt" count="0"/>
-      <line num="57" type="stmt" count="0"/>
-      <line num="59" type="stmt" count="0"/>
-      <line num="61" type="stmt" count="0"/>
-      <line num="66" type="stmt" count="0"/>
-      <line num="68" type="stmt" count="0"/>
-      <metrics loc="67" ncloc="61" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="23" coveredstatements="0" elements="25" coveredelements="0"/>
+      <line num="7" type="method" name="createApplication" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="9" type="stmt" count="1"/>
+      <line num="10" type="stmt" count="1"/>
+      <line num="11" type="stmt" count="1"/>
+      <line num="12" type="stmt" count="1"/>
+      <line num="13" type="stmt" count="1"/>
+      <line num="14" type="stmt" count="1"/>
+      <line num="15" type="stmt" count="1"/>
+      <line num="16" type="stmt" count="1"/>
+      <line num="17" type="stmt" count="1"/>
+      <line num="19" type="stmt" count="1"/>
+      <line num="23" type="method" name="createAdminLoginPage" visibility="private" complexity="1" crap="1" count="1"/>
+      <line num="25" type="stmt" count="1"/>
+      <line num="26" type="stmt" count="1"/>
+      <line num="27" type="stmt" count="1"/>
+      <line num="28" type="stmt" count="1"/>
+      <line num="30" type="stmt" count="1"/>
+      <line num="31" type="stmt" count="1"/>
+      <line num="35" type="method" name="createAdminDashboardPage" visibility="private" complexity="1" crap="1" count="1"/>
+      <line num="37" type="stmt" count="1"/>
+      <line num="38" type="stmt" count="1"/>
+      <line num="42" type="method" name="createCartPage" visibility="private" complexity="1" crap="1" count="1"/>
+      <line num="44" type="stmt" count="1"/>
+      <line num="45" type="stmt" count="1"/>
+      <line num="46" type="stmt" count="1"/>
+      <line num="47" type="stmt" count="1"/>
+      <line num="49" type="stmt" count="1"/>
+      <line num="50" type="stmt" count="1"/>
+      <line num="54" type="method" name="createOrderedPage" visibility="private" complexity="1" crap="1" count="1"/>
+      <line num="56" type="stmt" count="1"/>
+      <line num="57" type="stmt" count="1"/>
+      <line num="58" type="stmt" count="1"/>
+      <line num="60" type="stmt" count="1"/>
+      <line num="61" type="stmt" count="1"/>
+      <line num="62" type="stmt" count="1"/>
+      <line num="66" type="method" name="createProductPage" visibility="private" complexity="1" crap="1" count="1"/>
+      <line num="68" type="stmt" count="1"/>
+      <line num="69" type="stmt" count="1"/>
+      <line num="70" type="stmt" count="1"/>
+      <line num="72" type="stmt" count="1"/>
+      <line num="73" type="stmt" count="1"/>
+      <line num="74" type="stmt" count="1"/>
+      <line num="78" type="method" name="createFrontPage" visibility="private" complexity="1" crap="1" count="1"/>
+      <line num="80" type="stmt" count="1"/>
+      <line num="81" type="stmt" count="1"/>
+      <line num="82" type="stmt" count="1"/>
+      <line num="83" type="stmt" count="1"/>
+      <line num="85" type="stmt" count="1"/>
+      <line num="88" type="stmt" count="1"/>
+      <metrics loc="87" ncloc="87" classes="1" methods="7" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="41" coveredstatements="41" elements="48" coveredelements="48"/>
     </file>
     <file name="/home/developer/exampleProjects/webShop/code/src/Router.php">
       <class name="webShop\Router" namespace="global">
-        <metrics complexity="3" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="85" coveredstatements="0" elements="87" coveredelements="0"/>
+        <metrics complexity="6" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="93" coveredstatements="0" elements="95" coveredelements="0"/>
       </class>
       <line num="11" type="method" name="__construct" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="18" type="stmt" count="0"/>
-      <line num="20" type="method" name="setRoutes" visibility="public" complexity="2" crap="6" count="0"/>
-      <line num="22" type="stmt" count="0"/>
+      <line num="19" type="stmt" count="0"/>
+      <line num="21" type="method" name="setRoutes" visibility="public" complexity="5" crap="30" count="0"/>
       <line num="23" type="stmt" count="0"/>
       <line num="24" type="stmt" count="0"/>
       <line num="25" type="stmt" count="0"/>
       <line num="26" type="stmt" count="0"/>
-      <line num="28" type="stmt" count="0"/>
+      <line num="27" type="stmt" count="0"/>
       <line num="29" type="stmt" count="0"/>
       <line num="30" type="stmt" count="0"/>
       <line num="31" type="stmt" count="0"/>
-      <line num="32" type="stmt" count="0"/>
+      <line num="33" type="stmt" count="0"/>
       <line num="34" type="stmt" count="0"/>
       <line num="35" type="stmt" count="0"/>
       <line num="36" type="stmt" count="0"/>
-      <line num="37" type="stmt" count="0"/>
       <line num="38" type="stmt" count="0"/>
       <line num="39" type="stmt" count="0"/>
       <line num="40" type="stmt" count="0"/>
-      <line num="41" type="stmt" count="0"/>
       <line num="42" type="stmt" count="0"/>
       <line num="43" type="stmt" count="0"/>
-      <line num="44" type="stmt" count="0"/>
       <line num="45" type="stmt" count="0"/>
       <line num="46" type="stmt" count="0"/>
       <line num="47" type="stmt" count="0"/>
       <line num="48" type="stmt" count="0"/>
-      <line num="49" type="stmt" count="0"/>
-      <line num="50" type="stmt" count="0"/>
       <line num="51" type="stmt" count="0"/>
       <line num="52" type="stmt" count="0"/>
       <line num="53" type="stmt" count="0"/>
@@ -142,28 +112,26 @@
       <line num="63" type="stmt" count="0"/>
       <line num="64" type="stmt" count="0"/>
       <line num="65" type="stmt" count="0"/>
+      <line num="66" type="stmt" count="0"/>
       <line num="67" type="stmt" count="0"/>
       <line num="68" type="stmt" count="0"/>
       <line num="69" type="stmt" count="0"/>
+      <line num="70" type="stmt" count="0"/>
       <line num="71" type="stmt" count="0"/>
+      <line num="72" type="stmt" count="0"/>
       <line num="73" type="stmt" count="0"/>
       <line num="74" type="stmt" count="0"/>
+      <line num="75" type="stmt" count="0"/>
       <line num="76" type="stmt" count="0"/>
       <line num="77" type="stmt" count="0"/>
-      <line num="78" type="stmt" count="0"/>
       <line num="79" type="stmt" count="0"/>
-      <line num="80" type="stmt" count="0"/>
       <line num="81" type="stmt" count="0"/>
       <line num="82" type="stmt" count="0"/>
-      <line num="83" type="stmt" count="0"/>
-      <line num="84" type="stmt" count="0"/>
       <line num="85" type="stmt" count="0"/>
       <line num="86" type="stmt" count="0"/>
-      <line num="87" type="stmt" count="0"/>
-      <line num="89" type="stmt" count="0"/>
+      <line num="88" type="stmt" count="0"/>
       <line num="90" type="stmt" count="0"/>
       <line num="91" type="stmt" count="0"/>
-      <line num="92" type="stmt" count="0"/>
       <line num="93" type="stmt" count="0"/>
       <line num="94" type="stmt" count="0"/>
       <line num="95" type="stmt" count="0"/>
@@ -176,7 +144,6 @@
       <line num="102" type="stmt" count="0"/>
       <line num="103" type="stmt" count="0"/>
       <line num="104" type="stmt" count="0"/>
-      <line num="105" type="stmt" count="0"/>
       <line num="106" type="stmt" count="0"/>
       <line num="107" type="stmt" count="0"/>
       <line num="108" type="stmt" count="0"/>
@@ -184,33 +151,56 @@
       <line num="110" type="stmt" count="0"/>
       <line num="111" type="stmt" count="0"/>
       <line num="112" type="stmt" count="0"/>
-      <metrics loc="111" ncloc="111" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="85" coveredstatements="0" elements="87" coveredelements="0"/>
+      <line num="113" type="stmt" count="0"/>
+      <line num="114" type="stmt" count="0"/>
+      <line num="115" type="stmt" count="0"/>
+      <line num="116" type="stmt" count="0"/>
+      <line num="117" type="stmt" count="0"/>
+      <line num="118" type="stmt" count="0"/>
+      <line num="119" type="stmt" count="0"/>
+      <line num="120" type="stmt" count="0"/>
+      <line num="121" type="stmt" count="0"/>
+      <line num="122" type="stmt" count="0"/>
+      <line num="123" type="stmt" count="0"/>
+      <line num="124" type="stmt" count="0"/>
+      <line num="125" type="stmt" count="0"/>
+      <line num="126" type="stmt" count="0"/>
+      <line num="127" type="stmt" count="0"/>
+      <line num="128" type="stmt" count="0"/>
+      <line num="129" type="stmt" count="0"/>
+      <metrics loc="128" ncloc="126" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="93" coveredstatements="0" elements="95" coveredelements="0"/>
     </file>
     <file name="/home/developer/exampleProjects/webShop/code/src/SessionManager.php">
       <class name="webShop\SessionManager" namespace="global">
-        <metrics complexity="7" methods="7" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="0" elements="19" coveredelements="0"/>
+        <metrics complexity="9" methods="9" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="16" coveredstatements="0" elements="25" coveredelements="0"/>
       </class>
-      <line num="8" type="method" name="setName" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="10" type="stmt" count="0"/>
-      <line num="11" type="stmt" count="0"/>
-      <line num="13" type="method" name="getName" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="7" type="method" name="isLoggedIn" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="9" type="stmt" count="0"/>
+      <line num="12" type="method" name="setUser" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="14" type="stmt" count="0"/>
       <line num="15" type="stmt" count="0"/>
-      <line num="18" type="method" name="logout" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="16" type="stmt" count="0"/>
+      <line num="18" type="method" name="getName" visibility="public" complexity="1" crap="2" count="0"/>
       <line num="20" type="stmt" count="0"/>
-      <line num="21" type="stmt" count="0"/>
-      <line num="25" type="method" name="addToCart" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="27" type="stmt" count="0"/>
-      <line num="28" type="stmt" count="0"/>
-      <line num="30" type="method" name="getCart" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="23" type="method" name="getRole" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="25" type="stmt" count="0"/>
+      <line num="28" type="method" name="logout" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="30" type="stmt" count="0"/>
+      <line num="31" type="stmt" count="0"/>
       <line num="32" type="stmt" count="0"/>
-      <line num="35" type="method" name="deleteItemFromCart" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="34" type="method" name="addToCart" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="36" type="stmt" count="0"/>
       <line num="37" type="stmt" count="0"/>
-      <line num="38" type="stmt" count="0"/>
-      <line num="40" type="method" name="deleteCart" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="42" type="stmt" count="0"/>
-      <line num="43" type="stmt" count="0"/>
-      <line num="45" type="stmt" count="0"/>
-      <metrics loc="44" ncloc="44" classes="1" methods="7" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="0" elements="19" coveredelements="0"/>
+      <line num="39" type="method" name="getCart" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="41" type="stmt" count="0"/>
+      <line num="44" type="method" name="deleteItemFromCart" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="46" type="stmt" count="0"/>
+      <line num="47" type="stmt" count="0"/>
+      <line num="49" type="method" name="deleteCart" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="51" type="stmt" count="0"/>
+      <line num="52" type="stmt" count="0"/>
+      <line num="54" type="stmt" count="0"/>
+      <metrics loc="53" ncloc="53" classes="1" methods="9" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="16" coveredstatements="0" elements="25" coveredelements="0"/>
     </file>
     <file name="/home/developer/exampleProjects/webShop/code/src/VariablesWrapper.php">
       <class name="webShop\VariablesWrapper" namespace="global">
@@ -253,9 +243,36 @@
       <line num="23" type="stmt" count="0"/>
       <metrics loc="22" ncloc="22" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="0" elements="9" coveredelements="0"/>
     </file>
+    <file name="/home/developer/exampleProjects/webShop/code/src/database/MySQLLogin.php">
+      <class name="webShop\MySQLLogin" namespace="global">
+        <metrics complexity="5" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="18" coveredstatements="0" elements="21" coveredelements="0"/>
+      </class>
+      <line num="7" type="method" name="__construct" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="9" type="stmt" count="0"/>
+      <line num="11" type="method" name="login" visibility="public" complexity="3" crap="12" count="0"/>
+      <line num="13" type="stmt" count="0"/>
+      <line num="14" type="stmt" count="0"/>
+      <line num="19" type="stmt" count="0"/>
+      <line num="20" type="stmt" count="0"/>
+      <line num="21" type="stmt" count="0"/>
+      <line num="23" type="stmt" count="0"/>
+      <line num="24" type="stmt" count="0"/>
+      <line num="27" type="stmt" count="0"/>
+      <line num="28" type="stmt" count="0"/>
+      <line num="31" type="stmt" count="0"/>
+      <line num="34" type="method" name="getRole" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="36" type="stmt" count="0"/>
+      <line num="37" type="stmt" count="0"/>
+      <line num="42" type="stmt" count="0"/>
+      <line num="43" type="stmt" count="0"/>
+      <line num="44" type="stmt" count="0"/>
+      <line num="46" type="stmt" count="0"/>
+      <line num="48" type="stmt" count="0"/>
+      <metrics loc="47" ncloc="43" classes="1" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="18" coveredstatements="0" elements="21" coveredelements="0"/>
+    </file>
     <file name="/home/developer/exampleProjects/webShop/code/src/database/MySQLOrder.php">
       <class name="webShop\MySQLOrder" namespace="global">
-        <metrics complexity="4" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="44" coveredstatements="0" elements="46" coveredelements="0"/>
+        <metrics complexity="4" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="43" coveredstatements="0" elements="45" coveredelements="0"/>
       </class>
       <line num="9" type="method" name="__construct" visibility="public" complexity="1" crap="2" count="0"/>
       <line num="11" type="stmt" count="0"/>
@@ -279,31 +296,30 @@
       <line num="40" type="stmt" count="0"/>
       <line num="41" type="stmt" count="0"/>
       <line num="42" type="stmt" count="0"/>
-      <line num="43" type="stmt" count="0"/>
-      <line num="45" type="stmt" count="0"/>
+      <line num="44" type="stmt" count="0"/>
+      <line num="46" type="stmt" count="0"/>
       <line num="47" type="stmt" count="0"/>
-      <line num="48" type="stmt" count="0"/>
-      <line num="52" type="stmt" count="0"/>
-      <line num="54" type="stmt" count="0"/>
-      <line num="58" type="stmt" count="0"/>
+      <line num="51" type="stmt" count="0"/>
+      <line num="53" type="stmt" count="0"/>
+      <line num="57" type="stmt" count="0"/>
+      <line num="62" type="stmt" count="0"/>
       <line num="63" type="stmt" count="0"/>
       <line num="64" type="stmt" count="0"/>
-      <line num="65" type="stmt" count="0"/>
-      <line num="67" type="stmt" count="0"/>
-      <line num="69" type="stmt" count="0"/>
+      <line num="66" type="stmt" count="0"/>
+      <line num="68" type="stmt" count="0"/>
+      <line num="70" type="stmt" count="0"/>
       <line num="71" type="stmt" count="0"/>
       <line num="72" type="stmt" count="0"/>
-      <line num="73" type="stmt" count="0"/>
+      <line num="74" type="stmt" count="0"/>
       <line num="75" type="stmt" count="0"/>
       <line num="76" type="stmt" count="0"/>
       <line num="77" type="stmt" count="0"/>
-      <line num="78" type="stmt" count="0"/>
+      <line num="79" type="stmt" count="0"/>
       <line num="80" type="stmt" count="0"/>
-      <line num="81" type="stmt" count="0"/>
-      <line num="83" type="stmt" count="0"/>
+      <line num="82" type="stmt" count="0"/>
+      <line num="85" type="stmt" count="0"/>
       <line num="86" type="stmt" count="0"/>
-      <line num="87" type="stmt" count="0"/>
-      <metrics loc="86" ncloc="85" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="44" coveredstatements="0" elements="46" coveredelements="0"/>
+      <metrics loc="85" ncloc="84" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="43" coveredstatements="0" elements="45" coveredelements="0"/>
     </file>
     <file name="/home/developer/exampleProjects/webShop/code/src/database/MySQLProductLoader.php">
       <class name="webShop\MySQLProductLoader" namespace="global">
@@ -376,16 +392,6 @@
       <line num="33" type="stmt" count="0"/>
       <metrics loc="32" ncloc="32" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="0" elements="17" coveredelements="0"/>
     </file>
-    <file name="/home/developer/exampleProjects/webShop/code/src/database/config.php">
-      <line num="2" type="stmt" count="0"/>
-      <line num="3" type="stmt" count="0"/>
-      <line num="4" type="stmt" count="0"/>
-      <line num="5" type="stmt" count="0"/>
-      <line num="6" type="stmt" count="0"/>
-      <line num="8" type="stmt" count="0"/>
-      <line num="10" type="stmt" count="0"/>
-      <metrics loc="9" ncloc="9" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="0" elements="6" coveredelements="0"/>
-    </file>
     <file name="/home/developer/exampleProjects/webShop/code/src/page/AdminDashboardPage.php">
       <class name="webShop\AdminDashboardPage" namespace="global">
         <metrics complexity="2" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="0" elements="5" coveredelements="0"/>
@@ -427,6 +433,24 @@
       <line num="16" type="stmt" count="0"/>
       <line num="18" type="stmt" count="0"/>
       <metrics loc="17" ncloc="17" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="0" elements="6" coveredelements="0"/>
+    </file>
+    <file name="/home/developer/exampleProjects/webShop/code/src/page/LoginPage.php">
+      <class name="webShop\LoginPage" namespace="global">
+        <metrics complexity="4" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="0" elements="12" coveredelements="0"/>
+      </class>
+      <line num="8" type="method" name="__construct" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="13" type="stmt" count="0"/>
+      <line num="15" type="method" name="getPage" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="17" type="stmt" count="0"/>
+      <line num="20" type="method" name="login" visibility="public" complexity="2" crap="6" count="0"/>
+      <line num="22" type="stmt" count="0"/>
+      <line num="23" type="stmt" count="0"/>
+      <line num="25" type="stmt" count="0"/>
+      <line num="27" type="stmt" count="0"/>
+      <line num="28" type="stmt" count="0"/>
+      <line num="31" type="stmt" count="0"/>
+      <line num="33" type="stmt" count="0"/>
+      <metrics loc="32" ncloc="32" classes="1" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="0" elements="12" coveredelements="0"/>
     </file>
     <file name="/home/developer/exampleProjects/webShop/code/src/page/OrderedPage.php">
       <class name="webShop\OrderedPage" namespace="global">
@@ -575,6 +599,24 @@
       <line num="40" type="stmt" count="0"/>
       <metrics loc="39" ncloc="38" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="20" coveredstatements="0" elements="21" coveredelements="0"/>
     </file>
+    <file name="/home/developer/exampleProjects/webShop/code/src/projector/LoginProjector.php">
+      <class name="webShop\LoginProjector" namespace="global">
+        <metrics complexity="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="0" elements="11" coveredelements="0"/>
+      </class>
+      <line num="7" type="method" name="getHtml" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="9" type="stmt" count="0"/>
+      <line num="10" type="stmt" count="0"/>
+      <line num="12" type="stmt" count="0"/>
+      <line num="14" type="stmt" count="0"/>
+      <line num="15" type="stmt" count="0"/>
+      <line num="17" type="stmt" count="0"/>
+      <line num="19" type="stmt" count="0"/>
+      <line num="20" type="stmt" count="0"/>
+      <line num="21" type="stmt" count="0"/>
+      <line num="23" type="stmt" count="0"/>
+      <line num="25" type="stmt" count="0"/>
+      <metrics loc="24" ncloc="24" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="0" elements="11" coveredelements="0"/>
+    </file>
     <file name="/home/developer/exampleProjects/webShop/code/src/projector/OrderedProjector.php">
       <class name="webShop\OrderedProjector" namespace="global">
         <metrics complexity="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="0" elements="11" coveredelements="0"/>
@@ -637,351 +679,6 @@
       <line num="67" type="stmt" count="0"/>
       <metrics loc="66" ncloc="62" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="36" coveredstatements="0" elements="37" coveredelements="0"/>
     </file>
-    <file name="/home/developer/exampleProjects/webShop/code/src/valueobject/AbstractVO.php">
-      <class name="webShop\AbstractVO" namespace="global">
-        <metrics complexity="3" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="0" elements="7" coveredelements="0"/>
-      </class>
-      <line num="8" type="method" name="__construct" visibility="protected" complexity="1" crap="2" count="0"/>
-      <line num="10" type="stmt" count="0"/>
-      <line num="11" type="stmt" count="0"/>
-      <line num="15" type="method" name="__toString" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="17" type="stmt" count="0"/>
-      <line num="20" type="method" name="fromString" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="22" type="stmt" count="0"/>
-      <line num="24" type="stmt" count="0"/>
-      <metrics loc="23" ncloc="23" classes="1" methods="3" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="0" elements="7" coveredelements="0"/>
-    </file>
-    <file name="/home/developer/exampleProjects/webShop/code/src/valueobject/Adress.php">
-      <class name="webShop\Adress" namespace="global">
-        <metrics complexity="12" methods="12" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="0" elements="25" coveredelements="0"/>
-      </class>
-      <line num="6" type="method" name="__construct" visibility="protected" complexity="1" crap="2" count="0"/>
-      <line num="17" type="stmt" count="0"/>
-      <line num="19" type="method" name="set" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="21" type="stmt" count="0"/>
-      <line num="24" type="method" name="getEmail" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="26" type="stmt" count="0"/>
-      <line num="29" type="method" name="getCity" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="31" type="stmt" count="0"/>
-      <line num="34" type="method" name="getFirstname" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="36" type="stmt" count="0"/>
-      <line num="39" type="method" name="getLastname" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="41" type="stmt" count="0"/>
-      <line num="44" type="method" name="getStreet" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="46" type="stmt" count="0"/>
-      <line num="49" type="method" name="getZipCode" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="51" type="stmt" count="0"/>
-      <line num="54" type="method" name="getState" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="56" type="stmt" count="0"/>
-      <line num="59" type="method" name="getCountry" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="61" type="stmt" count="0"/>
-      <line num="64" type="method" name="getPhone" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="66" type="stmt" count="0"/>
-      <line num="69" type="method" name="getCompany" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="71" type="stmt" count="0"/>
-      <line num="73" type="stmt" count="0"/>
-      <metrics loc="72" ncloc="72" classes="1" methods="12" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="0" elements="25" coveredelements="0"/>
-    </file>
-    <file name="/home/developer/exampleProjects/webShop/code/src/valueobject/Attribute.php">
-      <class name="webShop\Attribute" namespace="global">
-        <metrics complexity="10" methods="9" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="0" elements="24" coveredelements="0"/>
-      </class>
-      <line num="14" type="method" name="__construct" visibility="protected" complexity="2" crap="6" count="0"/>
-      <line num="16" type="stmt" count="0"/>
-      <line num="17" type="stmt" count="0"/>
-      <line num="18" type="stmt" count="0"/>
-      <line num="20" type="stmt" count="0"/>
-      <line num="21" type="stmt" count="0"/>
-      <line num="23" type="stmt" count="0"/>
-      <line num="25" type="method" name="set" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="27" type="stmt" count="0"/>
-      <line num="30" type="method" name="setSelected" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="32" type="stmt" count="0"/>
-      <line num="33" type="stmt" count="0"/>
-      <line num="35" type="method" name="getSelected" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="37" type="stmt" count="0"/>
-      <line num="40" type="method" name="getId" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="42" type="stmt" count="0"/>
-      <line num="45" type="method" name="getName" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="47" type="stmt" count="0"/>
-      <line num="50" type="method" name="getDescription" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="52" type="stmt" count="0"/>
-      <line num="55" type="method" name="getPriceForValue" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="57" type="stmt" count="0"/>
-      <line num="60" type="method" name="getPriceForValueArray" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="62" type="stmt" count="0"/>
-      <line num="64" type="stmt" count="0"/>
-      <metrics loc="63" ncloc="63" classes="1" methods="9" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="0" elements="24" coveredelements="0"/>
-    </file>
-    <file name="/home/developer/exampleProjects/webShop/code/src/valueobject/City.php">
-      <class name="webShop\City" namespace="global">
-        <metrics complexity="6" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="0" elements="13" coveredelements="0"/>
-      </class>
-      <line num="7" type="method" name="__construct" visibility="private" complexity="1" crap="2" count="0"/>
-      <line num="9" type="stmt" count="0"/>
-      <line num="10" type="stmt" count="0"/>
-      <line num="12" type="method" name="validate" visibility="private" complexity="3" crap="12" count="0"/>
-      <line num="14" type="stmt" count="0"/>
-      <line num="15" type="stmt" count="0"/>
-      <line num="18" type="stmt" count="0"/>
-      <line num="19" type="stmt" count="0"/>
-      <line num="22" type="stmt" count="0"/>
-      <line num="25" type="method" name="__toString" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="27" type="stmt" count="0"/>
-      <line num="30" type="method" name="fromString" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="32" type="stmt" count="0"/>
-      <line num="34" type="stmt" count="0"/>
-      <metrics loc="33" ncloc="33" classes="1" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="0" elements="13" coveredelements="0"/>
-    </file>
-    <file name="/home/developer/exampleProjects/webShop/code/src/valueobject/Company.php">
-      <class name="webShop\Company" namespace="global">
-        <metrics complexity="5" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="0" elements="11" coveredelements="0"/>
-      </class>
-      <line num="7" type="method" name="__construct" visibility="private" complexity="1" crap="2" count="0"/>
-      <line num="9" type="stmt" count="0"/>
-      <line num="10" type="stmt" count="0"/>
-      <line num="12" type="method" name="validate" visibility="private" complexity="2" crap="6" count="0"/>
-      <line num="14" type="stmt" count="0"/>
-      <line num="15" type="stmt" count="0"/>
-      <line num="18" type="stmt" count="0"/>
-      <line num="22" type="method" name="__toString" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="24" type="stmt" count="0"/>
-      <line num="27" type="method" name="fromString" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="29" type="stmt" count="0"/>
-      <line num="31" type="stmt" count="0"/>
-      <metrics loc="30" ncloc="30" classes="1" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="0" elements="11" coveredelements="0"/>
-    </file>
-    <file name="/home/developer/exampleProjects/webShop/code/src/valueobject/Country.php">
-      <class name="webShop\Country" namespace="global">
-        <metrics complexity="9" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="0" elements="18" coveredelements="0"/>
-      </class>
-      <line num="7" type="method" name="__construct" visibility="private" complexity="1" crap="2" count="0"/>
-      <line num="9" type="stmt" count="0"/>
-      <line num="10" type="stmt" count="0"/>
-      <line num="12" type="method" name="validate" visibility="private" complexity="6" crap="42" count="0"/>
-      <line num="14" type="stmt" count="0"/>
-      <line num="15" type="stmt" count="0"/>
-      <line num="18" type="stmt" count="0"/>
-      <line num="19" type="stmt" count="0"/>
-      <line num="20" type="stmt" count="0"/>
-      <line num="21" type="stmt" count="0"/>
-      <line num="22" type="stmt" count="0"/>
-      <line num="23" type="stmt" count="0"/>
-      <line num="24" type="stmt" count="0"/>
-      <line num="26" type="stmt" count="0"/>
-      <line num="30" type="method" name="__toString" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="32" type="stmt" count="0"/>
-      <line num="35" type="method" name="fromString" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="37" type="stmt" count="0"/>
-      <line num="39" type="stmt" count="0"/>
-      <metrics loc="38" ncloc="38" classes="1" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="0" elements="18" coveredelements="0"/>
-    </file>
-    <file name="/home/developer/exampleProjects/webShop/code/src/valueobject/Email.php">
-      <class name="webShop\Email" namespace="global">
-        <metrics complexity="6" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="0" elements="13" coveredelements="0"/>
-      </class>
-      <line num="7" type="method" name="__construct" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="9" type="stmt" count="0"/>
-      <line num="10" type="stmt" count="0"/>
-      <line num="12" type="method" name="validate" visibility="private" complexity="3" crap="12" count="0"/>
-      <line num="14" type="stmt" count="0"/>
-      <line num="15" type="stmt" count="0"/>
-      <line num="18" type="stmt" count="0"/>
-      <line num="19" type="stmt" count="0"/>
-      <line num="22" type="stmt" count="0"/>
-      <line num="25" type="method" name="__toString" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="27" type="stmt" count="0"/>
-      <line num="30" type="method" name="fromString" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="32" type="stmt" count="0"/>
-      <line num="34" type="stmt" count="0"/>
-      <metrics loc="33" ncloc="33" classes="1" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="0" elements="13" coveredelements="0"/>
-    </file>
-    <file name="/home/developer/exampleProjects/webShop/code/src/valueobject/Name.php">
-      <class name="webShop\Name" namespace="global">
-        <metrics complexity="6" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="0" elements="13" coveredelements="0"/>
-      </class>
-      <line num="7" type="method" name="__construct" visibility="private" complexity="1" crap="2" count="0"/>
-      <line num="9" type="stmt" count="0"/>
-      <line num="10" type="stmt" count="0"/>
-      <line num="12" type="method" name="validate" visibility="private" complexity="3" crap="12" count="0"/>
-      <line num="14" type="stmt" count="0"/>
-      <line num="15" type="stmt" count="0"/>
-      <line num="18" type="stmt" count="0"/>
-      <line num="19" type="stmt" count="0"/>
-      <line num="22" type="stmt" count="0"/>
-      <line num="25" type="method" name="__toString" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="27" type="stmt" count="0"/>
-      <line num="30" type="method" name="fromString" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="32" type="stmt" count="0"/>
-      <line num="34" type="stmt" count="0"/>
-      <metrics loc="33" ncloc="33" classes="1" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="0" elements="13" coveredelements="0"/>
-    </file>
-    <file name="/home/developer/exampleProjects/webShop/code/src/valueobject/Phone.php">
-      <class name="webShop\Phone" namespace="global">
-        <metrics complexity="7" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="0" elements="13" coveredelements="0"/>
-      </class>
-      <line num="7" type="method" name="__construct" visibility="private" complexity="1" crap="2" count="0"/>
-      <line num="9" type="stmt" count="0"/>
-      <line num="10" type="stmt" count="0"/>
-      <line num="12" type="method" name="validate" visibility="private" complexity="4" crap="20" count="0"/>
-      <line num="14" type="stmt" count="0"/>
-      <line num="15" type="stmt" count="0"/>
-      <line num="18" type="stmt" count="0"/>
-      <line num="19" type="stmt" count="0"/>
-      <line num="22" type="stmt" count="0"/>
-      <line num="25" type="method" name="__toString" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="27" type="stmt" count="0"/>
-      <line num="30" type="method" name="fromString" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="32" type="stmt" count="0"/>
-      <line num="34" type="stmt" count="0"/>
-      <metrics loc="33" ncloc="33" classes="1" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="0" elements="13" coveredelements="0"/>
-    </file>
-    <file name="/home/developer/exampleProjects/webShop/code/src/valueobject/Product.php">
-      <class name="webShop\Product" namespace="global">
-        <metrics complexity="11" methods="10" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="0" elements="24" coveredelements="0"/>
-      </class>
-      <line num="7" type="method" name="__construct" visibility="private" complexity="1" crap="2" count="0"/>
-      <line num="14" type="stmt" count="0"/>
-      <line num="16" type="method" name="set" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="17" type="stmt" count="0"/>
-      <line num="20" type="method" name="getAttributes" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="22" type="stmt" count="0"/>
-      <line num="25" type="method" name="getAttribute" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="27" type="stmt" count="0"/>
-      <line num="30" type="method" name="getProductID" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="32" type="stmt" count="0"/>
-      <line num="35" type="method" name="getProductName" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="37" type="stmt" count="0"/>
-      <line num="40" type="method" name="getProductDesc" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="42" type="stmt" count="0"/>
-      <line num="45" type="method" name="getProductShortDesc" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="47" type="stmt" count="0"/>
-      <line num="50" type="method" name="getProductDetail" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="52" type="stmt" count="0"/>
-      <line num="55" type="method" name="getProductImage" visibility="public" complexity="2" crap="6" count="0"/>
-      <line num="57" type="stmt" count="0"/>
-      <line num="58" type="stmt" count="0"/>
-      <line num="60" type="stmt" count="0"/>
-      <line num="62" type="stmt" count="0"/>
-      <line num="64" type="stmt" count="0"/>
-      <metrics loc="63" ncloc="63" classes="1" methods="10" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="0" elements="24" coveredelements="0"/>
-    </file>
-    <file name="/home/developer/exampleProjects/webShop/code/src/valueobject/ProductDesc.php">
-      <class name="webShop\ProductDesc" namespace="global">
-        <metrics complexity="3" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="0" elements="7" coveredelements="0"/>
-      </class>
-      <line num="7" type="method" name="validate" visibility="protected" complexity="2" crap="6" count="0"/>
-      <line num="9" type="stmt" count="0"/>
-      <line num="11" type="stmt" count="0"/>
-      <line num="13" type="stmt" count="0"/>
-      <line num="16" type="method" name="toHTML" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="18" type="stmt" count="0"/>
-      <line num="19" type="stmt" count="0"/>
-      <line num="21" type="stmt" count="0"/>
-      <metrics loc="20" ncloc="20" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="0" elements="7" coveredelements="0"/>
-    </file>
-    <file name="/home/developer/exampleProjects/webShop/code/src/valueobject/ProductDetail.php">
-      <class name="webShop\ProductDetail" namespace="global">
-        <metrics complexity="3" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="0" elements="7" coveredelements="0"/>
-      </class>
-      <line num="7" type="method" name="validate" visibility="protected" complexity="2" crap="6" count="0"/>
-      <line num="9" type="stmt" count="0"/>
-      <line num="11" type="stmt" count="0"/>
-      <line num="14" type="stmt" count="0"/>
-      <line num="17" type="method" name="toHTML" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="19" type="stmt" count="0"/>
-      <line num="20" type="stmt" count="0"/>
-      <line num="22" type="stmt" count="0"/>
-      <metrics loc="21" ncloc="21" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="0" elements="7" coveredelements="0"/>
-    </file>
-    <file name="/home/developer/exampleProjects/webShop/code/src/valueobject/ProductName.php">
-      <class name="webShop\ProductName" namespace="global">
-        <metrics complexity="2" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="0" elements="4" coveredelements="0"/>
-      </class>
-      <line num="7" type="method" name="validate" visibility="protected" complexity="2" crap="6" count="0"/>
-      <line num="9" type="stmt" count="0"/>
-      <line num="11" type="stmt" count="0"/>
-      <line num="14" type="stmt" count="0"/>
-      <line num="16" type="stmt" count="0"/>
-      <metrics loc="15" ncloc="15" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="0" elements="4" coveredelements="0"/>
-    </file>
-    <file name="/home/developer/exampleProjects/webShop/code/src/valueobject/ProductOrder.php">
-      <class name="webShop\ProductOrder" namespace="global">
-        <metrics complexity="5" methods="5" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="0" elements="11" coveredelements="0"/>
-      </class>
-      <line num="7" type="method" name="__construct" visibility="private" complexity="1" crap="2" count="0"/>
-      <line num="11" type="stmt" count="0"/>
-      <line num="13" type="method" name="set" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="14" type="stmt" count="0"/>
-      <line num="17" type="method" name="getId" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="19" type="stmt" count="0"/>
-      <line num="22" type="method" name="getAttributes" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="24" type="stmt" count="0"/>
-      <line num="27" type="method" name="getHash" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="29" type="stmt" count="0"/>
-      <line num="31" type="stmt" count="0"/>
-      <metrics loc="30" ncloc="30" classes="1" methods="5" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="0" elements="11" coveredelements="0"/>
-    </file>
-    <file name="/home/developer/exampleProjects/webShop/code/src/valueobject/State.php">
-      <class name="webShop\State" namespace="global">
-        <metrics complexity="9" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="0" elements="15" coveredelements="0"/>
-      </class>
-      <line num="7" type="method" name="__construct" visibility="private" complexity="1" crap="2" count="0"/>
-      <line num="9" type="stmt" count="0"/>
-      <line num="10" type="stmt" count="0"/>
-      <line num="12" type="method" name="validate" visibility="private" complexity="4" crap="20" count="0"/>
-      <line num="14" type="stmt" count="0"/>
-      <line num="15" type="stmt" count="0"/>
-      <line num="18" type="stmt" count="0"/>
-      <line num="19" type="stmt" count="0"/>
-      <line num="22" type="stmt" count="0"/>
-      <line num="25" type="method" name="__toString" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="27" type="stmt" count="0"/>
-      <line num="30" type="method" name="fromString" visibility="public" complexity="3" crap="12" count="0"/>
-      <line num="32" type="stmt" count="0"/>
-      <line num="33" type="stmt" count="0"/>
-      <line num="35" type="stmt" count="0"/>
-      <line num="37" type="stmt" count="0"/>
-      <metrics loc="36" ncloc="36" classes="1" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="0" elements="15" coveredelements="0"/>
-    </file>
-    <file name="/home/developer/exampleProjects/webShop/code/src/valueobject/Street.php">
-      <class name="webShop\Street" namespace="global">
-        <metrics complexity="6" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="0" elements="11" coveredelements="0"/>
-      </class>
-      <line num="7" type="method" name="__construct" visibility="private" complexity="1" crap="2" count="0"/>
-      <line num="9" type="stmt" count="0"/>
-      <line num="10" type="stmt" count="0"/>
-      <line num="12" type="method" name="validate" visibility="private" complexity="3" crap="12" count="0"/>
-      <line num="14" type="stmt" count="0"/>
-      <line num="15" type="stmt" count="0"/>
-      <line num="18" type="stmt" count="0"/>
-      <line num="21" type="method" name="__toString" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="23" type="stmt" count="0"/>
-      <line num="26" type="method" name="fromString" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="28" type="stmt" count="0"/>
-      <line num="30" type="stmt" count="0"/>
-      <metrics loc="29" ncloc="29" classes="1" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="0" elements="11" coveredelements="0"/>
-    </file>
-    <file name="/home/developer/exampleProjects/webShop/code/src/valueobject/ZipCode.php">
-      <class name="webShop\ZipCode" namespace="global">
-        <metrics complexity="6" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="0" elements="13" coveredelements="0"/>
-      </class>
-      <line num="7" type="method" name="__construct" visibility="private" complexity="1" crap="2" count="0"/>
-      <line num="9" type="stmt" count="0"/>
-      <line num="10" type="stmt" count="0"/>
-      <line num="12" type="method" name="validate" visibility="private" complexity="3" crap="12" count="0"/>
-      <line num="14" type="stmt" count="0"/>
-      <line num="15" type="stmt" count="0"/>
-      <line num="18" type="stmt" count="0"/>
-      <line num="19" type="stmt" count="0"/>
-      <line num="22" type="stmt" count="0"/>
-      <line num="26" type="method" name="__toString" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="28" type="stmt" count="0"/>
-      <line num="31" type="method" name="fromString" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="33" type="stmt" count="0"/>
-      <line num="35" type="stmt" count="0"/>
-      <metrics loc="34" ncloc="34" classes="1" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="9" coveredstatements="0" elements="13" coveredelements="0"/>
-    </file>
-    <metrics files="38" loc="1608" ncloc="1572" classes="37" methods="132" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="599" coveredstatements="0" elements="731" coveredelements="0"/>
+    <metrics files="4566" loc="1067" ncloc="1031" classes="25454" methods="60" coveredmethods="7015" conditionals="0" coveredconditionals="0" statements="476" coveredstatements="48642" elements="536" coveredelements="42424"/>
   </project>
 </coverage>

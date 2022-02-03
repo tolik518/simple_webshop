@@ -25,7 +25,6 @@ class Router
             $response->getBody()->write($outputHtml);
             return $response;
         })->setName('frontPage');
-
         $app->get('/login',    function (Request $request, Response $response) {
             if ($this->sessionManager->isLoggedIn()){
                 return $response->withHeader('Location', '/'); //wenn schon eingeloggt
@@ -34,14 +33,12 @@ class Router
             $response->getBody()->write($loginPage);
             return $response; //wenn nicht eingeloggt
         })->setName('loginPage');
-
         $app->post('/login',    function (Request $request, Response $response) {
             if($this->loginPage->login()){
                 return $response->withHeader('Location', '/');
             }
             return $response->withHeader('Location', '/login');
         })->setName('login');
-
         $app->get('/logout',   function (Request $request, Response $response) {
             $this->sessionManager->logout();
             return $response->withHeader('Location', '/');
@@ -72,6 +69,13 @@ class Router
                         return $response;
                     })->setName('adminOrdersClosed');
             });
+
+            $group->group('/api', function (RouteCollectorProxy $group){
+                $group->group('/v1', function (RouteCollectorProxy $group){
+
+                });
+            });
+
         })->add(function (Request $request, RequestHandler $handler) use ($app) {
             $response = $handler->handle($request);
             $adminContent = (string) $response->getBody();

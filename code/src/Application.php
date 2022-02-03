@@ -4,8 +4,7 @@ namespace webShop;
 class Application
 {
     public function __construct(
-        private Router $router,
-        private VariablesWrapper $variablesWrapper
+        private Router $router
     ){}
 
     public function start(\Slim\App $app): void

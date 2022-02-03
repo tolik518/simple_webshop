@@ -22,13 +22,13 @@ class FactoryTest extends TestCase
         $mySqlConnectorMock = $this->getMockBuilder(MySQLConnector::class)
                         ->disableOriginalConstructor()
                         ->getMock();
+
         $pdoMock = $this->getMockBuilder(\PDO::class)
                         ->disableOriginalConstructor()
                         ->getMock();
+
         $mySqlConnectorMock->method("getConnection")
                            ->willReturn($pdoMock);
-
-        $_SERVER['REQUEST_URI'] = '';
 
         $factory = new Factory();
         self::assertInstanceOf(Application::class, $factory->createApplication($mySqlConnectorMock));

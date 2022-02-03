@@ -22,6 +22,6 @@ class SessionManagerTest extends TestCase
 
         $sessionManager->addToCart($productorder);
         //TODO: test schreiben
-        self::assertTrue($sessionManager->getCart());
+        self::assertIsArray($sessionManager->getCart());
     }
 }
