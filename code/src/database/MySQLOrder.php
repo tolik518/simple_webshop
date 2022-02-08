@@ -11,7 +11,7 @@ class MySQLOrder
     ){}
 
     /** @var $cart ProductOrder[]*/
-    public function makeOrder(Adress $address, array $cart)
+    public function makeOrder(Adress $address, array $cart, $price)
     {
         $sql_address = $this->mySQLConnector->prepare(
             'INSERT INTO webshop.customers(email, firstname, lastname, street, zipcode, city, state, country, phone, company)
@@ -38,7 +38,7 @@ class MySQLOrder
         );
 
         $sql_new_order->bindValue(':customer_id', $customer_id);
-        $sql_new_order->bindValue(':price', 0.0);
+        $sql_new_order->bindValue(':price', $price);
         $sql_new_order->execute();
 
         $order_id = $this->mySQLConnector->lastInsertId();

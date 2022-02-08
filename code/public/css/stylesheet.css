@@ -683,4 +683,84 @@ details summary:first-of-type {
 h1 {
     font-size: xxx-large;
     margin-block: 0.25rem;
+    margin-inline: 1.5rem;
+}
+
+.line {
+    fill: none;
+    stroke: steelblue;
+    stroke-width: 2px;
+}
+
+.xachseunten g text{
+    font-size: 0.85rem !important;
+}
+
+.yachselinks g text{
+    font-size: 0.85rem !important;
+}
+
+div#tilecollection{
+    padding-block: 20px;
+    padding-inline: 30px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+div.tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    color: #000000;
+    background: #ffffff;
+    border: 2px solid steelblue;
+    box-shadow: 0  2.0px 2.2px rgb(0 0 0 / 12%),
+                0 -0.5px 2.2px rgb(0 0 0 / 12%);
+    width: 8rem;
+    height: 7rem;
+    justify-content: center;
+    margin-inline: 1rem;
+}
+
+.tile .number{
+    font-size: larger;
+    font-weight: bold;
+}
+
+.area {
+    fill: lightsteelblue;
+    opacity: 0.4;
+}
+
+.grid line {
+    stroke: lightgrey;
+    stroke-opacity: 0.7;
+    shape-rendering: crispEdges;
+}
+.grid path {
+    stroke-width: 0;
+}
+
+.bar {
+    fill: steelblue;
+}
+
+div.tooltip {
+    position: absolute;
+    width: 10rem;
+    height: 3rem;
+    padding: 2px;
+    font: 1rem sans-serif;
+    background: lightsteelblue;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }

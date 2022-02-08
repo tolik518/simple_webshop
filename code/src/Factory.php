@@ -9,11 +9,13 @@ class Factory
         return new Application(
             new Router(
                 $this->createAdminDashboardPage($mySQLConnector),
+                $this->createAPILoader($mySQLConnector),
                 $this->createAdminLoginPage($mySQLConnector),
                 $this->createCartPage($mySQLConnector),
                 $this->createFrontPage($mySQLConnector),
                 $this->createOrderedPage($mySQLConnector),
                 $this->createProductPage($mySQLConnector),
+                $this->createMiddlewareAdmin(),
                 new SessionManager()
             )
         );
@@ -28,6 +30,13 @@ class Factory
             ),
             new SessionManager(),
             new VariablesWrapper(),
+        );
+    }
+
+    private function createAPILoader($mySQLConnector): APILoader
+    {
+        return new APILoader(
+            new MySQLAPI($mySQLConnector->getConnection())
         );
     }
 
@@ -56,6 +65,9 @@ class Factory
           new MySQLOrder(
               $mySQLConnector->getConnection()
           ),
+          new MySQLProductLoader(
+              $mySQLConnector->getConnection()
+          ),
           new OrderedProjector(),
           new SessionManager(),
           new VariablesWrapper()
@@ -82,6 +94,12 @@ class Factory
                 $mySQLConnector->getConnection()
             ),
             new VariablesWrapper()
+        );
+    }
+
+    private function createMiddlewareAdmin(){
+        return new MiddlewareAdmin(
+            new SessionManager()
         );
     }
 }

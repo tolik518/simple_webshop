@@ -6,6 +6,7 @@ class OrderedPage
 {
     public function __construct(
         private MySQLOrder $mySQLOrder,
+        private MySQLProductLoader $mySQLProductLoader,
         private OrderedProjector $orderedProjector,
         private SessionManager $sessionManager,
         private VariablesWrapper $variablesWrapper
@@ -38,6 +39,18 @@ class OrderedPage
             $this->error = $e->getMessage();
         }
 
-        $this->mySQLOrder->makeOrder($address, $this->sessionManager->getCart());
+        $productOrders=$this->sessionManager->getCart();
+
+        foreach ($productOrders as $productOrder)
+        {
+            $products[] = $this->mySQLProductLoader->getProductByProductID($productOrder->getId());
+        }
+
+        $productOrders = array_values($productOrders);
+        $products = array_values($products);
+
+        $price = PriceCalculator::calculatePriceForOrder($productOrders, $products);
+
+        $this->mySQLOrder->makeOrder($address, $productOrders, $price);
     }
 }

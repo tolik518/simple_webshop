@@ -11,7 +11,10 @@ class ProductOrder
     ){}
 
     public static function set($productId, $attributes){
-        return new self($productId, $attributes, hash("md5", implode($attributes)));
+        return new self($productId, $attributes,
+            hash("md5", implode($attributes) //TODO: auslagern
+                                         .session_id()
+                                         .time()));
     }
 
     public function getId(): int
