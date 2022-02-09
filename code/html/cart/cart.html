@@ -1,5 +1,5 @@
 <div id="productPathWrapper">
-    <span id="productPath"><a href="/">Start</a> &gt; <a href="/cart">Warenkorb</a></span>
+    <span id="productPath"><a href="/">Start</a> &gt; <a href="/cart">{cart_lang}</a></span>
 </div>
 <div id="cart">
     %%CARTITEMS%%
@@ -7,32 +7,32 @@
         <summary></summary>
         <div class="adressorloginWrapper">
             <div class="loginorguest">
-                <button><i class="fa fa-sign-in-alt"></i> Einloggen</button>
-                oder als Gast bestellen
+                <button><i class="fa fa-sign-in-alt"></i> {login_lang}</button>
+                {guest_lang}
             </div>
             <div class="adressinput">
                 <form method="post" action="/cart/checkout" class="inputfields" id="adressForm">
-                    <label for="email">E-Mail*</label>
+                    <label for="email">{email_lang}*</label>
                     <div class="textboxoutline">
                         <i class="fas fa-at fa-1x fa-fw"></i>
                         <input type="text" id="email" name="email" class="textbox" value="" required>
                     </div>
-                    <label for="company">Firma</label>
+                    <label for="company">{company_lang}</label>
                     <div class="textboxoutline">
                         <i class="fas fa-building fa-1x fa-fw"></i>
                         <input type="text" id="company" name="company" class="textbox" value="">
                     </div>
-                    <label for="firstname">Vorname</label>
+                    <label for="firstname">{firstname_lang}</label>
                     <div class="textboxoutline">
                         <i class="fas fa-user fa-1x fa-fw"></i>
                         <input type="text" id="firstname" name="firstname" class="textbox" value="">
                     </div>
-                    <label for="lastname">Nachname*</label>
+                    <label for="lastname">{lastname_lang}*</label>
                     <div class="textboxoutline">
                         <i class="fas fa-signature fa-1x fa-fw"></i>
                         <input type="text" id="lastname" name="lastname" class="textbox" value="" required>
                     </div>
-                    <label for="street">Straße/Hausnummer*</label>
+                    <label for="street">{street_lang}*</label>
                     <div class="textboxoutline">
                         <i class="fas fa-home fa-1x fa-fw"></i>
                         <input type="text" id="street" name="street" class="textbox" value="" required>
@@ -40,14 +40,14 @@
 
                     <div class="cityContainer">
                         <div class="citycityContainer">
-                            <label for="city">Stadt*</label>
+                            <label for="city">{city_lang}*</label>
                             <div class="textboxoutline">
                                 <i class="fas fa-city fa-1x fa-fw"></i>
                                 <input type="text" id="city" name="city" class="textbox" value="" required>
                             </div>
                         </div>
                         <div class="citycityContainer">
-                            <label for="zipcode">Postleitzahl*</label>
+                            <label for="zipcode">{zipcode_lang}*</label>
                             <div class="textboxoutline">
                                 <i class="fas fa-envelope fa-1x fa-fw"></i>
                                 <input type="text" id="zipcode" name="zipcode" class="textbox" value="" required>
@@ -55,33 +55,33 @@
                         </div>
                     </div>
 
-                    <label for="state">Bundesland</label>
+                    <label for="state">{state_lang}</label>
                     <div class="textboxoutline">
                         <i class="fas fa-map-marked fa-1x fa-fw"></i>
                         <input type="text" id="state" name="state" class="textbox" value="">
                     </div>
-                    <label for="country">Land*</label>
+                    <label for="country">{country_lang}*</label>
                     <div class="textboxoutline">
                         <i class="fas fa-globe-europe fa-1x fa-fw"></i>
                         <select id="country" name="country" class="country">
-                            <option value="Deutschland" selected>Deutschland</option>
-                            <option value="Österreich">Österreich</option>
-                            <option value="Schweiz">Schweiz</option>
+                            <option value="Deutschland" selected>{germany_lang}</option>
+                            <option value="Österreich">{austria_lang}</option>
+                            <option value="Schweiz">{switzerland_lang}</option>
                         </select>
                     </div>
-                    <label for="phone">Telefonnummer*</label>
+                    <label for="phone">{tel_lang}*</label>
                     <div class="textboxoutline">
                         <i class="fas fa-phone fa-1x fa-fw"></i>
                         <input type="text" id="phone" name="phone" class="textbox" value="" required>
                     </div>
                     <!--- %MESSAGE% --->
-                    <span><input type="checkbox" id="privacy" required><label for="privacy">Ich habe die Datenschutzbestimmungen gelesen und akzeptiere sie. *</label></span>
-                    <div class="req">* erforderliche Angabe</div>
+                    <span><input type="checkbox" id="privacy" required><label for="privacy">{dsvgo_lang} *</label></span>
+                    <div class="req">* {req_lang}</div>
                 </form>
             </div>
         </div>
     </details>
     <div class="productBottomSection">
-        <span id="currentPrice">%%TOTALPRICE%%</span> <button type="submit" form="adressForm" value="add"><i class="fa fa-shopping-cart"></i>Bestellen</button>
+        <span id="currentPrice">%%TOTALPRICE%%</span> <button type="submit" form="adressForm" value="add"><i class="fa fa-shopping-cart"></i> {buy_lang}</button>
     </div>
 </div>

@@ -696,6 +696,10 @@ h1 {
     font-size: 0.85rem !important;
 }
 
+.xachseuntenBig g text{
+    font-size: 1.25rem !important;
+}
+
 .yachselinks g text{
     font-size: 0.85rem !important;
 }
@@ -753,7 +757,7 @@ div.tooltip {
     width: 10rem;
     height: 3rem;
     padding: 2px;
-    font: 1rem sans-serif;
+    font: 1rem Roboto;
     background: lightsteelblue;
     border: 0px;
     border-radius: 8px;
@@ -763,4 +767,12 @@ div.tooltip {
     align-content: center;
     justify-content: center;
     align-items: center;
+}
+.tooltipprice{
+    font-weight: 300;
+}
+
+.tooltipdate{
+    font: 0.85rem Roboto;
+    font-weight: 300;
 }

@@ -16,7 +16,8 @@ class Factory
                 $this->createOrderedPage($mySQLConnector),
                 $this->createProductPage($mySQLConnector),
                 $this->createMiddlewareAdmin(),
-                new SessionManager()
+                new SessionManager(),
+                new TranslationMiddleware()
             )
         );
     }
@@ -98,7 +99,7 @@ class Factory
     }
 
     private function createMiddlewareAdmin(){
-        return new MiddlewareAdmin(
+        return new AdminMiddleware(
             new SessionManager()
         );
     }

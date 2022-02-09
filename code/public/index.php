@@ -1,6 +1,9 @@
 <?php
 declare(strict_types=1);
 namespace webShop;
+
+//$start = microtime();
+
 use Slim\Factory\AppFactory;
 
 // Directories
@@ -11,6 +14,7 @@ define('VENDOR',        ROOT  . 'vendor'  . DR);
 define('HTML',          ROOT  . 'html'    . DR);
 define('DATABASE',       APP  . 'database'. DR);
 define('PUBLICFOLDER',  ROOT  . 'public'  . DR);
+define('TRANSLATION',   PUBLICFOLDER  . 'translation_files'. DR);
 define('PRODUCTIMAGES',   PUBLICFOLDER .
                            DR . 'assets'  .
                            DR . 'img'     .
@@ -28,3 +32,5 @@ $factory = new Factory();
 $factory->createApplication($mySQLConnector)->start($app);
 
 $app->run();
+
+//var_dump(microtime()-$start);

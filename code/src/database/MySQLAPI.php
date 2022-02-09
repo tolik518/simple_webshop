@@ -10,35 +10,38 @@ class MySQLAPI
 
     public function orders(): array
     {
-        $sql = $this->mySQLConnector->prepare('SELECT *
-                                                 FROM webshop.orders');
+        $sql = $this->mySQLConnector->prepare(
+            'SELECT *
+                   FROM webshop.orders'
+        );
         $sql->execute();
-        $result = $sql->fetchAll(\PDO::FETCH_ASSOC);
-        return $result;
+        return $sql->fetchAll(\PDO::FETCH_ASSOC);;
     }
 
     public function fullorders(): array
     {
-        $sql = $this->mySQLConnector->prepare('SELECT product.name, ordered_products.item_id
-                                                 FROM webshop.orders
-                                                 INNER JOIN webshop.ordered_products
-                                                 ON orders.order_id = ordered_products.order_id
-                                                 INNER JOIN webshop.product
-                                                 ON ordered_products.product_id = product.product_id');
+        $sql = $this->mySQLConnector->prepare(
+            'SELECT product.name, ordered_products.item_id
+                   FROM webshop.orders
+                   INNER JOIN webshop.ordered_products
+                   ON orders.order_id = ordered_products.order_id
+                   INNER JOIN webshop.product
+                   ON ordered_products.product_id = product.product_id'
+        );
         $sql->execute();
-        $result = $sql->fetchAll(\PDO::FETCH_ASSOC);
-        return $result;
+        return $sql->fetchAll(\PDO::FETCH_ASSOC);;
     }
 
     public function orderById($id): array
     {
-        $sql = $this->mySQLConnector->prepare('SELECT *
-                                                 FROM webshop.orders
-                                                 WHERE order_id = :id;');
+        $sql = $this->mySQLConnector->prepare(
+            'SELECT *
+                   FROM webshop.orders
+                   WHERE order_id = :id;'
+        );
         $sql->bindValue(':id', $id);
         $sql->execute();
-        $result = $sql->fetchAll(\PDO::FETCH_ASSOC);
-        return $result;
+        return $sql->fetchAll(\PDO::FETCH_ASSOC);;
     }
 
     public function getOrdersToday(): array
@@ -47,9 +50,11 @@ class MySQLAPI
         $todaysql->execute();
         $today = $todaysql->fetch()[0];
 
-        $sql = $this->mySQLConnector->prepare('SELECT *
-                                                 FROM webshop.orders
-                                                 WHERE ordered_at LIKE :today');
+        $sql = $this->mySQLConnector->prepare(
+            'SELECT *
+                   FROM webshop.orders
+                   WHERE ordered_at LIKE :today'
+        );
         $sql->bindValue(":today", $today."%");
 
         $sql->execute();
@@ -59,11 +64,11 @@ class MySQLAPI
 
     public function getOrderedProducts(): array
     {
-        $sql = $this->mySQLConnector->prepare('SELECT *
-                                                 FROM webshop.ordered_products;');
-        $sql->execute();
-        $result = $sql->fetchAll(\PDO::FETCH_ASSOC);
-        return $result;
+        $sql = $this->mySQLConnector->query(
+            'SELECT *
+                   FROM webshop.ordered_products;'
+        );
+        return $sql->fetchAll(\PDO::FETCH_ASSOC);;
     }
 
     public function getOrderedProductsByOrderId($id): array
@@ -73,8 +78,8 @@ class MySQLAPI
                                                  WHERE order_id = :id;');
         $sql->bindValue(':id', $id);
         $sql->execute();
-        $result = $sql->fetchAll(\PDO::FETCH_ASSOC);
-        return $result;
+
+        return $sql->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     public function getOrderedProductsByOrderIdAndHash($id, $hash): array
@@ -85,8 +90,8 @@ class MySQLAPI
         $sql->bindValue(':id', $id);
         $sql->bindValue(':item_id', $hash);
         $sql->execute();
-        $result = $sql->fetchAll(\PDO::FETCH_ASSOC);
-        return $result;
+
+        return $sql->fetchAll(\PDO::FETCH_ASSOC);
     }
     public function getOrderedProductsByOrderIdAndProductID($id, $product_id): array
     {
@@ -96,7 +101,7 @@ class MySQLAPI
         $sql->bindValue(':id', $id);
         $sql->bindValue(':product_id', $product_id);
         $sql->execute();
-        $result = $sql->fetchAll(\PDO::FETCH_ASSOC);
-        return $result;
+
+        return  $sql->fetchAll(\PDO::FETCH_ASSOC);
     }
 }

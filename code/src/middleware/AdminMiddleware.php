@@ -7,7 +7,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
 use Psr\Http\Server\MiddlewareInterface;
 
-class MiddlewareAdmin implements MiddlewareInterface
+class AdminMiddleware implements MiddlewareInterface
 {
     private SessionManager $sessionManager;
 

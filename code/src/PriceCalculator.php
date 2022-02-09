@@ -18,11 +18,13 @@ class PriceCalculator
             {
                 /** @var $attribute Attribute */
                 $attribute = $products[$index]->getAttribute($attributename);
-                if($attributename == "Auflage" ||$attributename ==  "Versand")
+                if($attributename === "attributes_quantity" ||$attributename ===  "attributes_shipping")
                 {
-                    if($attributename == "Auflage")
+                    if($attributename === "attributes_quantity")
                     {
-                        $auflage = $attributevalue;
+                        /* die variable die wir bekommen sieht so aus "attributes_quantity_10000" deswegen müssen wir das
+                            attributes_quantity erstmal rauslöschen */
+                        $auflage = (int)str_replace("attributes_quantity_", "", $attributevalue);;
                     }
                     $pricetotal += $attribute->getPriceForValue($attributevalue??0);
                 } else {
@@ -36,6 +38,7 @@ class PriceCalculator
 
     /**
      * Returns prices for all ordered products, individually, in an array of float values
+     * @var $products Product[]
      */
     public static function calculatePrices(array $productOrders, array $products): array
     {
@@ -50,17 +53,17 @@ class PriceCalculator
             {
                 /** @var $attribute Attribute */
                 $attribute = $products[$index]->getAttribute($attributename);
-                if($attributename == "Auflage" ||$attributename ==  "Versand")
+                if($attributename === "attributes_quantity" || $attributename === "attributes_shipping")
                 {
-                    if($attributename == "Auflage")
-                    {
-                        $auflage[$index] = $attributevalue;
+                    if($attributename === "attributes_quantity"){
+                        /* die variable die wir bekommen sieht so aus "attributes_quantity_10000" deswegen müssen wir das
+                             attributes_quantity erstmal rauslöschen */
+                        $auflage[$index] = (int)str_replace("attributes_quantity_", "", $attributevalue);
                     }
                     $prices[$index] += round($attribute->getPriceForValue($attributevalue??0), 2);
                 } else {
                     $prices[$index] += round($auflage[$index]*$attribute->getPriceForValue($attributevalue??0),2);
                 }
-
             }
         }
         return $prices;

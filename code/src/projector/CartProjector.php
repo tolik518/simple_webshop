@@ -69,7 +69,7 @@ class CartProjector
         $contentHTML = file_get_contents(HTML.'cart/cart.html');
         $newcartitem = file_get_contents(HTML.'cart/_cartitem.html');
 
-        $cartproducts = '<div class="cartItem">Ihr Warenkorb ist noch leer</div>';
+        $cartproducts = '<div class="cartItem">{empty_cart_lang}</div>';
         $contentHTML = str_replace('%%TOTALPRICE%%', "", $contentHTML);
         $contentHTML = str_replace('%%CARTITEMS%%', $cartproducts, $contentHTML);
 

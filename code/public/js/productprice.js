@@ -1,4 +1,5 @@
-"use strict";
+let attributes_quantity_name = "attributes_quantity";
+let attributes_shipping_name = "attributes_shipping";
 let attributenames = getAllAttributeNames();
 setPriceToHTML(calculatePrice());
 setSelectedItemToHTML(attributenames);
@@ -16,6 +17,10 @@ function setSelectedItemToHTML(attributenames) {
         let currentSelected = document.getElementById("currentSelected" + attributeName);
         currentSelected.value = getSelectedName("radio" + attributeName);
     });
+    attributenames.forEach(function (attributeName) {
+        let currentSelected_clean = document.getElementById("currentSelected_clean" + attributeName);
+        currentSelected_clean.value = getSelectedValue("radio" + attributeName);
+    });
 }
 function setPriceToHTML(price) {
     let priceelem = document.getElementById("currentPrice");
@@ -25,16 +30,16 @@ function setPriceToHTML(price) {
 function calculatePrice() {
     let attributes = getAllAttributeNames();
     let attributesclean = attributes.filter(function (elem) {
-        return elem != "Versand" && elem != "Auflage";
+        return elem != attributes_shipping_name && elem != attributes_quantity_name;
     });
     let priceForOneItem = 0;
     let fixedPrice = 0;
     attributesclean.forEach(attribute => priceForOneItem += getSelectedPrice("radio" + attribute));
-    fixedPrice = getSelectedPrice("radioVersand") + getSelectedPrice("radioAuflage");
+    fixedPrice = getSelectedPrice("radio" + attributes_shipping_name) + getSelectedPrice("radio" + attributes_quantity_name);
     return (priceForOneItem * getItemCount() + fixedPrice);
 }
 function getItemCount() {
-    let radios = document.getElementsByName("radioAuflage");
+    let radios = document.getElementsByName("radio" + attributes_quantity_name);
     let value = 0;
     radios.forEach(function (radio) {
         if (radio.checked) {
@@ -67,6 +72,16 @@ function getSelectedName(itemName) {
     radios.forEach(function (radio) {
         if (radio.checked) {
             name = radio.labels[0].innerHTML;
+        }
+    });
+    return name;
+}
+function getSelectedValue(itemName) {
+    let radios = document.getElementsByName(itemName);
+    let name = "none";
+    radios.forEach(function (radio) {
+        if (radio.checked) {
+            name = radio.getAttribute("label");
         }
     });
     return name;

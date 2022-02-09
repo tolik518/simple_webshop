@@ -26,6 +26,8 @@ class ProductPage
         foreach ($attributes_expected as $expected){
             $attributes[$expected] = $this->variablesWrapper->getPostParam(str_replace(" ","_",$expected))??"0";
         }
+
+
         $productorder = ProductOrder::set($id, $attributes);
 
         $this->sessionManager->addToCart($productorder);

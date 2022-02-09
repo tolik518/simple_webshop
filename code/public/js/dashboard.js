@@ -5,6 +5,7 @@ await import("./lib/d3/7.3.0/dist/d3.min.js").then(function () {
     getSetOrderIncomeToday();
     renderBarchchart();
 });
+//https://stackoverflow.com/a/19526461/15139141
 function reindex_array_keys(array, start) {
     let temp = [];
     start = typeof start == 'undefined' ? 0 : start;
@@ -41,7 +42,6 @@ function getSetOrderIncome() {
 function renderGraphOrdersToPrice() {
     const parseTime = d3.timeParse("%Y-%m-%d %H:%M:%S");
     const formatTime = d3.timeFormat("%Y-%m-%d");
-    const toDate = d3.timeParse("%Y-%m-%d");
     // set the dimensions and margins of the graph
     const margin = { top: 20, right: 20, bottom: 50, left: 100 };
     const width = 960 - margin.left - margin.right;
@@ -137,14 +137,17 @@ function renderGraphOrdersToPrice() {
             div.transition()
                 .duration(200)
                 .style("opacity", .9);
-            div.html(formatTime(d.ordered_at) + "<br/>" + ((Math.round(d.price * 100) / 100).toFixed(2) + "€"))
+            div.html("<div class='tooltipdate'>" + formatTime(d.ordered_at) + "</div>" +
+                "<div class='tooltipprice'>" + ((Math.round(d.price * 100) / 100).toFixed(2) + "€</div>"))
                 .style("left", (event.pageX) + 10 + "px")
                 .style("top", (event.pageY) + 5 + "px");
+            this.style.fill = "red";
         })
             .on("mouseout", function (d) {
             div.transition()
                 .duration(500)
                 .style("opacity", 0);
+            this.style.fill = "steelblue";
         });
         // Add the X Axis
         svg.append("g")
@@ -202,6 +205,9 @@ function renderBarchchart() {
         var svg = d3.select("#graphOrdersToPrice").append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
+            .style("border-top", "1px solid #a0a0a0")
+            .style("margin-top", "1rem")
+            .style("padding-top", "1rem")
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
         const palette = ['#177dd7', '#259ebf', '#44519b', '#3545a8', '#5460a2'];
@@ -227,12 +233,17 @@ function renderBarchchart() {
             .attr("x", function (d) { return x(d.name); })
             .attr("width", x.bandwidth())
             .attr("y", function (d) { return y(d.anzahl); })
-            .attr("height", function (d) { return height - y(d.anzahl); });
+            .attr("height", function (d) { return height - y(d.anzahl); })
+            .on("mouseover", function (event, d) {
+            this.style.opacity = "0.2";
+        })
+            .on("mouseout", function (d) {
+            this.style.opacity = "0.4";
+        });
         // add the x Axis
         svg.append("g")
             .attr("transform", "translate(0," + height + ")")
-            .attr("class", "xachseunten")
-            .style("font-size", "5rem !important")
+            .attr("class", "xachseuntenBig")
             .call(d3.axisBottom(x));
         // add the y Axis
         svg.append("g")

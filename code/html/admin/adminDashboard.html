@@ -1,3 +1,4 @@
+<script type="module" src="/js/dashboard.js"></script>
 <div id="productPathWrapper">
     <span id="productPath"><a href="/">Start</a> &gt; <a href="/admin">Admin</a></span>
 </div>
@@ -6,26 +7,26 @@
     <div id="adminDashboardContent">
         <div id="tilecollection">
             <div class="tile">
-                <span>Bestellungen</span>
-                <span>Insgesamt:</span>
+                <span>{orders_lang}</span>
+                <span>{total_lang}:</span>
                 <div id="totalOrders" class="number">0</div>
             </div>
 
             <div class="tile">
-                <span>Einnahmen</span>
-                <span>Insgesamt:</span>
+                <span>{revenue_lang}</span>
+                <span>{total_lang}:</span>
                 <div id="totalIncome" class="number">0 €</div>
             </div>
 
             <div class="tile">
-                <span>Bestellungen</span>
-                <span>heute:</span>
+                <span>{orders_lang}</span>
+                <span>{today_lang}:</span>
                 <div id="totalOrdersToday" class="number">0</div>
             </div>
 
             <div class="tile">
-                <span>Einnahmen</span>
-                <span>Heute:</span>
+                <span>{revenue_lang}</span>
+                <span>{today_lang}:</span>
                 <div id="totalIncomeToday" class="number">0 €</div>
             </div>
 
