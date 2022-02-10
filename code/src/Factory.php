@@ -17,7 +17,7 @@ class Factory
                 $this->createProductPage($mySQLConnector),
                 $this->createMiddlewareAdmin(),
                 new SessionManager(),
-                new TranslationMiddleware()
+                new TranslationMiddleware(new SessionManager())
             )
         );
     }

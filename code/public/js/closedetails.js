@@ -1,4 +1,3 @@
-"use strict";
 // https://stackoverflow.com/a/36994802/15139141
 const details = document.querySelectorAll("details");
 // Add the onclick listeners.

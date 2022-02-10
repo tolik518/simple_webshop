@@ -20,7 +20,6 @@ class ZipCode
         }
 
         throw new \InvalidArgumentException("Die Postleitzahl enthält unerlaubte Zeichen.");
-
     }
 
     public function __toString() : string

@@ -171,9 +171,8 @@ function renderGraphOrdersToPrice() {
                 div.html("<div class='tooltipdate'>"+formatTime(d.ordered_at) + "</div>"+
                         "<div class='tooltipprice'>"+((Math.round(d.price * 100) / 100).toFixed(2) + "€</div>"))
                     .style("left", (event.pageX) + 10 + "px")
-                    .style("top", (event.pageY) + 5 + "px");
+                    .style("top",  (event.pageY) + 5  + "px");
                 this.style.fill = "red"
-
             })
             .on("mouseout", function(d) {
                 div.transition()

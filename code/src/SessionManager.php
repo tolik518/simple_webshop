@@ -9,6 +9,16 @@ class SessionManager
         return isset($_SESSION['name'], $_SESSION['role']);
     }
 
+    public function setLanguage($lang): void
+    {
+        $_SESSION['lang'] = $lang;
+    }
+
+    public function getLang(): string
+    {
+        return $_SESSION['lang'] ?? "en";
+    }
+
     public function setUser($name, $role): void
     {
         $_SESSION['name'] = $name;
