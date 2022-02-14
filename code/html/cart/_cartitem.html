@@ -8,8 +8,8 @@
       %%CONFIGPOINTS%%
     </div>
   </div>
-  <div class="cartItemPrice">
-    %%ITEMPRICE%%
+  <div class="cartItemRighContainer">
+    <span class="price" data-price><span class="currentPrice" itemprop="price">%%ITEMPRICE%%</span><span class="currentPriceCurrency" itemprop="priceCurrency">€</span></span>
     <form action="/cart/deleteitem/%%PRODUCTID%%" method="post">
       <button class="removeFromCart"><i class="fa fa-trash"></i></button>
     </form>

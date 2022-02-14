@@ -1,4 +1,11 @@
 {
+  "google_api_lang": "zh",
+  "admin_dashboard_lang": "管理员仪表板",
+  "admin_lang": "行政",
+  "start_lang": "开始",
+  "ordered_lang": "已订购",
+  "logout_lang": "登出",
+  "dashboard_lang": "仪表板",
   "thankyou_lang"	:	"感谢您的订单</br></br>确认已发送到您的电子邮件地址！",
   "username_lang"	:	 "用户名",
   "password_lang"	:	 "密码",
@@ -137,8 +144,6 @@
   "product_desc_flyer_lang"	:	 "传单经典是真正的多面手。<br> 无论您是希望将传单打印为 DIN A4 的信息信函,还是作为方便的 DIN A5 开业的广告传单,还是作为折扣活动的代金券放在口袋里尺寸 DIN A6：您会在这里找到合适的变体。<br><br><li>光面图片打印、亚光图片打印和许多其他材料<br><li>DIN 尺寸和特殊形状<br><li>交货快递和过夜<br><li>可以涂漆和涂膜<br><li>10件起",
   "product_short_desc_flyer_lang"	:	 "A4/A5/DIN 长 - 折叠或不折叠,由所有材料制成！",
   "product_details_flyer_lang"	:	 "注意：一次性托盘由货运代理发货。无法跟踪发货。如果无法接受货物,第二次发货将产生额外费用。",
-
-
 
   "product_poster_lang"	:	 "海报",
   "product_desc_poster_lang"	:	"所有尺寸,还有 A8！-海报站",

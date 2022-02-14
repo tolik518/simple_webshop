@@ -26,6 +26,8 @@ require_once VENDOR.'autoload.php';
 session_start();
 $mySQLConnector = new MySQLConnector();
 
+setcookie("currency","EUR");
+
 $app = AppFactory::create();
 $factory = new Factory();
 

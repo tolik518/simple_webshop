@@ -1,4 +1,11 @@
 {
+  "google_api_lang": "en",
+  "admin_dashboard_lang": "Admin Dashboard",
+  "admin_lang": "Admin",
+  "start_lang": "Start",
+  "ordered_lang": "Ordered",
+  "logout_lang": "Logout",
+  "dashboard_lang": "Dashboard",
   "thankyou_lang": "Thank you for your order</br></br>A confirmation has been sent to your email address!",
   "username_lang": "Username",
   "password_lang": "Password",

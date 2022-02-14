@@ -19,6 +19,8 @@ class CartPage
         {
             return $this->cartProjector->getHtmlForEmpty();
         }
+        //echo "<pre>";
+        //var_dump($productOrders);
 
         /** @var $productOrder ProductOrder */
         foreach ($productOrders as $productOrder)

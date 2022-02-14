@@ -21,7 +21,7 @@ class CartProjector
         {
             $cartproducts .= $newcartitem;
 
-            $cartproducts = str_replace('%%ITEMPRICE%%', $prices[$index]."€", $cartproducts);
+            $cartproducts = str_replace('%%ITEMPRICE%%', $prices[$index], $cartproducts);
             $cartproducts = str_replace('%%PRODUCTNAME%%', $products[$index]->getProductName(), $cartproducts);
             $cartproducts = str_replace('%%PRODUCTIMAGE%%', $products[$index]->getProductImage(1), $cartproducts);
             $cartproducts = str_replace('%%PRODUCTID%%', $productOrder->getHash(), $cartproducts);
@@ -47,7 +47,7 @@ class CartProjector
         }
         $totalpriceaftertax = round($totalprice+($totalprice/100*19), 2);
         //TODO: Quick hack -> Preisberechnung auslagern!
-        $contentHTML = str_replace('%%TOTALPRICE%%', $totalprice."€ + 19% MWST = " . $totalpriceaftertax . "€", $contentHTML);
+        $contentHTML = str_replace('%%TOTALPRICE%%', $totalprice, $contentHTML);
 
         $headHTML   = file_get_contents(HTML.'_head.html');
         $footerHTML = file_get_contents(HTML.'_footer.html');

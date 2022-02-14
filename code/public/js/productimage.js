@@ -1,4 +1,3 @@
-"use strict";
 let productimageMain = document.getElementById("productimageMain");
 let productimageMainDisplay = document.getElementById("productimageMainDisplay");
 //filesizecheck

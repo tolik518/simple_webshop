@@ -1,4 +1,3 @@
-"use strict";
 let productimages = document.getElementsByClassName("productimageSmallWrapper");
 let actualProductimageMain = document.getElementById("actualProductimageMain");
 let originalImage = actualProductimageMain.src;

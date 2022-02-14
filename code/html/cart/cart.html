@@ -1,5 +1,5 @@
 <div id="productPathWrapper">
-    <span id="productPath"><a href="/">Start</a> &gt; <a href="/cart">{cart_lang}</a></span>
+    <span id="productPath"><a href="/">{start_lang}</a> &gt; <a href="/cart">{cart_lang}</a></span>
 </div>
 <div id="cart">
     %%CARTITEMS%%
@@ -82,6 +82,8 @@
         </div>
     </details>
     <div class="productBottomSection">
-        <span id="currentPrice">%%TOTALPRICE%%</span> <button type="submit" form="adressForm" value="add"><i class="fa fa-shopping-cart"></i> {buy_lang}</button>
+        <span class="price" data-price><span class="currentPrice" itemprop="price">%%TOTALPRICE%%</span><span class="currentPriceCurrency" itemprop="priceCurrency">€</span></span>
+        <script src="/js/currency_converter.js"></script>
+        <button type="submit" form="adressForm" value="add"><i class="fa fa-shopping-cart"></i> {buy_lang}</button>
     </div>
 </div>

@@ -17,14 +17,10 @@ function setSelectedItemToHTML(attributenames) {
         let currentSelected = document.getElementById("currentSelected" + attributeName);
         currentSelected.value = getSelectedName("radio" + attributeName);
     });
-    attributenames.forEach(function (attributeName) {
-        let currentSelected_clean = document.getElementById("currentSelected_clean" + attributeName);
-        currentSelected_clean.value = getSelectedValue("radio" + attributeName);
-    });
 }
 function setPriceToHTML(price) {
-    let priceelem = document.getElementById("currentPrice");
-    let priceformatted = (Math.round(price * 100) / 100).toFixed(2) + "€";
+    let priceelem = document.getElementsByClassName("currentPrice")[0];
+    let priceformatted = (Math.round(price * 100) / 100).toFixed(2);
     priceelem.innerHTML = priceformatted;
 }
 function calculatePrice() {
@@ -72,16 +68,6 @@ function getSelectedName(itemName) {
     radios.forEach(function (radio) {
         if (radio.checked) {
             name = radio.labels[0].innerHTML;
-        }
-    });
-    return name;
-}
-function getSelectedValue(itemName) {
-    let radios = document.getElementsByName(itemName);
-    let name = "none";
-    radios.forEach(function (radio) {
-        if (radio.checked) {
-            name = radio.getAttribute("label");
         }
     });
     return name;

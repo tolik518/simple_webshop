@@ -1,4 +1,11 @@
 {
+	"google_api_lang": "de",
+	"admin_dashboard_lang": "Admin Dashboard",
+	"admin_lang": "Admin",
+	"start_lang": "Start",
+	"ordered_lang": "Bestellt",
+	"logout_lang": "Logout",
+	"dashboard_lang": "Dashboard",
 	"thankyou_lang": "Vielen Dank für Deine Bestellung</br></br>Eine Bestätigung wurde an deine Email-Adresse rausgeschickt!",
 	"username_lang": "Username",
 	"password_lang": "Passwort",
@@ -137,8 +144,6 @@
 	"product_desc_flyer_lang": "Flyer Klassiker sind echte Alleskönner.<br> Ob Sie Ihre Flyer als Info-Schreiben in DIN A4 drucken lassen, als Werbeflyer zur Geschäftseröffnung im handlichen DIN A5 anlegen oder als Gutschein für eine Rabattaktion in hosentaschentauglichen DIN A6 planen: Hier finden Sie passende Varianten.<br><br><li>Bilderdruck glänzend, Bilderdruck matt und viele weitere Materialien<br><li>DIN-Größen und Sonderformen<br><li>Lieferung per Express- und Overnight<br><li>Lack- und Folienveredelungen möglich<br><li>ab 10 Stück",
 	"product_short_desc_flyer_lang": "A4/A5/DINlang - ob gefaltet oder nicht und aus allen Materialien!",
 	"product_details_flyer_lang": "Hinweis: Lieferung per Spedition auf Einwegpaletten. Ein Versandtracking ist nicht möglich. Kann die Ware nicht entgegengenommen werden, ist die zweite Zustellung mit Mehrkosten verbunden.",
-
-
 
 	"product_poster_lang": "Poster",
 	"product_desc_poster_lang":"Alle größen, auch A8! - Na Poster halt",
