@@ -1,11 +1,13 @@
+import {cc, convert} from "./currency_converter.js";
 
 let attributes_quantity_name = "attributes_quantity";
 let attributes_shipping_name = "attributes_shipping";
 
-let attributenames: string[] = getAllAttributeNames();
-
 setPriceToHTML(calculatePrice());
+let attributenames: string[] = getAllAttributeNames();
 setSelectedItemToHTML(attributenames);
+
+cc.getPrices().then(()=>{convert();});
 
 
 attributenames.forEach(function (attributeName: string)
@@ -17,6 +19,7 @@ attributenames.forEach(function (attributeName: string)
         {
             setPriceToHTML(calculatePrice()); //Update the prices
             setSelectedItemToHTML(attributenames);
+            convert(); //TODO:
         })
     })
 })
@@ -26,6 +29,9 @@ function setSelectedItemToHTML(attributenames: string[])
     attributenames.forEach(function (attributeName){ //update the selected item in the "summary"
         let currentSelected = <HTMLInputElement>document.getElementById("currentSelected"+attributeName);
         currentSelected.value = getSelectedName("radio"+attributeName);
+
+        let currentSelected_clean = <HTMLInputElement>document.getElementById("currentSelected_clean"+attributeName);
+        currentSelected_clean.value = getSelectedValue("radio"+attributeName);
     })
 }
 
@@ -97,6 +103,18 @@ function getSelectedName(itemName: string): string
     radios.forEach(function (radio: HTMLInputElement){
         if (radio.checked) {
             name = radio.labels[0].innerHTML;
+        }
+    })
+    return name;
+}
+
+function getSelectedValue(itemName: string): string
+{
+    let radios = <NodeListOf<HTMLInputElement>> document.getElementsByName(itemName);
+    let name: string = "none";
+    radios.forEach(function (radio: HTMLInputElement){
+        if (radio.checked) {
+            name = radio.getAttribute("label");
         }
     })
     return name;

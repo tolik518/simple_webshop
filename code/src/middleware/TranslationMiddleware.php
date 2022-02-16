@@ -20,6 +20,11 @@ class TranslationMiddleware implements MiddlewareInterface
         $lang = $request->getQueryParams()["lang"] ?? $this->sessionManager->getLang();
         $this->sessionManager->setLanguage($lang);  //TODO: gucken ob sprache existiert
 
+        //var_dump($request->getQueryParams()["currency"] ?? $this->sessionManager->getCurrency());
+
+        $currency = $request->getQueryParams()["currency"] ?? $this->sessionManager->getCurrency();
+        $this->sessionManager->setCurrency($currency);  //TODO: gucken ob währung existiert
+
         if ($this->isRedirect($response)){
             return $response; //wenn weiterleitung, dann gibts keinen body und nichts zum übersetzen
         }

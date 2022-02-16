@@ -9,6 +9,26 @@ class SessionManager
         return isset($_SESSION['name'], $_SESSION['role']);
     }
 
+    public function setCurrency($currency): void
+    {
+        $_SESSION['currency'] = $currency;
+
+        $arr_cookie_options = array (
+            'expires' => time() + 60*60*24*30,
+            'path' => '/',
+            'domain' => '127.0.0.1', // leading dot for compatibility or use subdomain
+            'secure' => false,     // or false
+            'httponly' => false,    // or false
+            'samesite' => 'None' // None || Lax  || Strict
+        );
+        setcookie("currency", $currency);
+    }
+
+    public function getCurrency(): string
+    {
+        return $_SESSION['currency'] ?? "EUR";
+    }
+
     public function setLanguage($lang): void
     {
         $_SESSION['lang'] = $lang;

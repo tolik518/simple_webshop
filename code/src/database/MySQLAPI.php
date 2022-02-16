@@ -15,7 +15,7 @@ class MySQLAPI
                    FROM webshop.orders'
         );
         $sql->execute();
-        return $sql->fetchAll(\PDO::FETCH_ASSOC);;
+        return $sql->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     public function fullorders(): array
@@ -29,7 +29,7 @@ class MySQLAPI
                    ON ordered_products.product_id = product.product_id'
         );
         $sql->execute();
-        return $sql->fetchAll(\PDO::FETCH_ASSOC);;
+        return $sql->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     public function orderById($id): array
@@ -41,7 +41,7 @@ class MySQLAPI
         );
         $sql->bindValue(':id', $id);
         $sql->execute();
-        return $sql->fetchAll(\PDO::FETCH_ASSOC);;
+        return $sql->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     public function getOrdersToday(): array
@@ -68,7 +68,7 @@ class MySQLAPI
             'SELECT *
                    FROM webshop.ordered_products;'
         );
-        return $sql->fetchAll(\PDO::FETCH_ASSOC);;
+        return $sql->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     public function getOrderedProductsByOrderId($id): array

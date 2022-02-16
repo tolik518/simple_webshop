@@ -1,14 +1,17 @@
+import { cc, convert } from "./currency_converter.js";
 let attributes_quantity_name = "attributes_quantity";
 let attributes_shipping_name = "attributes_shipping";
-let attributenames = getAllAttributeNames();
 setPriceToHTML(calculatePrice());
+let attributenames = getAllAttributeNames();
 setSelectedItemToHTML(attributenames);
+cc.getPrices().then(() => { convert(); });
 attributenames.forEach(function (attributeName) {
     let radiobuttons = document.querySelectorAll('input[name="radio' + attributeName + '"]');
     radiobuttons.forEach(function (radio) {
         radio.addEventListener("change", function () {
             setPriceToHTML(calculatePrice()); //Update the prices
             setSelectedItemToHTML(attributenames);
+            convert(); //TODO:
         });
     });
 });
@@ -16,6 +19,8 @@ function setSelectedItemToHTML(attributenames) {
     attributenames.forEach(function (attributeName) {
         let currentSelected = document.getElementById("currentSelected" + attributeName);
         currentSelected.value = getSelectedName("radio" + attributeName);
+        let currentSelected_clean = document.getElementById("currentSelected_clean" + attributeName);
+        currentSelected_clean.value = getSelectedValue("radio" + attributeName);
     });
 }
 function setPriceToHTML(price) {
@@ -68,6 +73,16 @@ function getSelectedName(itemName) {
     radios.forEach(function (radio) {
         if (radio.checked) {
             name = radio.labels[0].innerHTML;
+        }
+    });
+    return name;
+}
+function getSelectedValue(itemName) {
+    let radios = document.getElementsByName(itemName);
+    let name = "none";
+    radios.forEach(function (radio) {
+        if (radio.checked) {
+            name = radio.getAttribute("label");
         }
     });
     return name;
