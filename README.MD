@@ -1,6 +1,4 @@
-Das ist ein Lösungsansatz zur Aufgabe einen WebShop zu schreiben. Beim Lösungsansatz 
-wurde sich hauptsächlich an der [OOP Introduction](https://stash.flyeralarm.com/projects/AZ/repos/oopintroduction/browse) orientiert.
-
+Das ist ein Lösungsansatz für einen WebShop mit konfigurierbaren Items. 
 Für das Routing wird aus Übungsgründen das [Slim-Framework 4.9](https://www.slimframework.com/) verwendet.
 
 ___________________
