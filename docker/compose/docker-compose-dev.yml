@@ -1,20 +1,23 @@
 version: '3.5'
 services:
   nginx:
-    image: af.flyeralarm/new_project/nginx:dev
+    image: ${VENDORNAME}/${PROJECTNAME}/nginx:dev
+    container_name: ${PROJECTNAME}_nginx
     volumes:
       - ./../../code/public:/var/www/html/public
     ports:
       - '80:80'
 
   php:
-    image: af.flyeralarm/new_project/php:dev
+    image: ${VENDORNAME}/${PROJECTNAME}/php:dev
+    container_name: ${PROJECTNAME}_php
     volumes:
       - ./../../code:/var/www/html
       - ./../php/php-ini-overrides.ini:/etc/php/8.0/cli/conf.d/php-ini-overrides.ini
 
   database:
-    image: af.flyeralarm/new_project/database:dev
+    image: ${VENDORNAME}/${PROJECTNAME}/database:dev
+    container_name: ${PROJECTNAME}_database
     volumes:
       - ./../../database:/var/lib/mysql:rw
     environment:

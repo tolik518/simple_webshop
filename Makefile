@@ -1,33 +1,43 @@
+VENDORNAME=tolik518
+PROJECTNAME=webshop
 
-CLI=docker-compose -f docker/compose/docker-compose-cli.yml
+CLI=PROJECTNAME=$(PROJECTNAME) VENDORNAME=$(VENDORNAME)  docker-compose -p $(PROJECTNAME) -f docker/compose/docker-compose-cli.yml
+COMPOSE=PROJECTNAME=$(PROJECTNAME) VENDORNAME=$(VENDORNAME) docker-compose -p $(PROJECTNAME) -f docker/compose/docker-compose-dev.yml
 
 .PHONY: build_dev
 build_dev:
 	docker build -f docker/php/Dockerfile . \
-	-t af.flyeralarm/new_project/php:dev
+	-t $(VENDORNAME)/$(PROJECTNAME)/php:dev
 	docker build -f docker/nginx/Dockerfile . \
-	-t af.flyeralarm/new_project/nginx:dev
+	-t $(VENDORNAME)/$(PROJECTNAME)/nginx:dev
 	docker build -f docker/database/Dockerfile . \
-	-t af.flyeralarm/new_project/database:dev
+	-t $(VENDORNAME)/$(PROJECTNAME)/database:dev
 	docker build -f docker/php_cli/Dockerfile . \
-	-t af.flyeralarm/new_project/php_cli:dev
+	-t $(VENDORNAME)/$(PROJECTNAME)/php_cli:dev
 
 .PHONY: run
 run:
-	docker-compose -f docker/compose/docker-compose-dev.yml up -d
+	$(COMPOSE) up -d
+	docker ps
 
 .PHONY: stop
 stop:
-	docker-compose -f docker/compose/docker-compose-dev.yml down
+	$(COMPOSE) down --remove-orphans
+	docker ps
 
 .PHONY: install
 install:
-	$(CLI) run --rm --no-deps php_cli php -d memory_limit=-1 /usr/local/bin/composer install
+	$(CLI) run --rm --no-deps php_cli php -d memory_limit=-1 /usr/bin/composer install
 
 .PHONY: update
 update:
-	$(CLI) run --rm --no-deps php_cli php -d memory_limit=-1 /usr/local/bin/composer update
+	$(CLI) run --rm --no-deps php_cli php -d memory_limit=-1 /usr/bin/composer update
 
-.PHONY: validate
-validate:
-	code/vendor/bin/phpcs -w -p -s --standard=code/vendor/flyeralarm/php-code-validator/ruleset.xml code/src/
+.PHONY: logs
+logs:
+	$(COMPOSE) logs
+
+.PHONY: cleanup
+cleanup:
+	docker stop $$(docker ps -a -q)
+	docker rm $$(docker ps -a -q)

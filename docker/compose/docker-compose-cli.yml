@@ -1,7 +1,7 @@
 version: '3.5'
 services:
   php_cli:
-    image: af.flyeralarm/new_project/php_cli:dev
+    image: ${VENDORNAME}/${PROJECTNAME}/php_cli:dev
     working_dir: /var/www/html
     volumes:
       - ./../../code:/var/www/html
