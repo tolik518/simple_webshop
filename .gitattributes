@@ -1,2 +1,3 @@
 code/public/js/lib/** linguist-vendored
 code/public/js/*.js linguist-vendored
+Documentation/** linguist-documentation

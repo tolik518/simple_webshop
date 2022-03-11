@@ -8,8 +8,8 @@ README.MD
 
 .idea
 .temp
-/phpunit.report.xml
-/phpunit.coverage.xml
+phpunit.report.xml
+phpunit.coverage.xml
 
 
 # User-specific stuff
