@@ -2,7 +2,7 @@ Das ist ein Lösungsansatz für einen WebShop mit konfigurierbaren Items.
 Für das Routing wird aus Übungsgründen das [Slim-Framework 4.9](https://www.slimframework.com/) verwendet.
 
 ___________________
-<u>Beschreibung:</u>      
+<u>Aufgabenstellung:</u>      
 Als Start-up möchte ich meine **Produkte** (Flyer A4, Flyer A6, Flyer DINlang, Faltblatt, Poster
 A3, Poster A2) **online verkaufen** können. Die Kunden sollen zu ihrer Bestellung
 **Druckdaten** hochladen können. Die Mitarbeiter sollen in einem **Admin Bereich** alle
@@ -14,5 +14,4 @@ soll die Seite für den Kunden ansprechend aussehen.
 - Anforderungsanalyse
 - Projektplanung
 - Anwendungsentwicklung in OOP PHP
-______________________
 
