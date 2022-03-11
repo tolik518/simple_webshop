@@ -4,6 +4,7 @@
 /code/vendor
 /code/composer.lock
 /database/
+README.MD
 
 .idea
 .temp
