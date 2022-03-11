@@ -44,8 +44,8 @@ class AdressTest extends TestCase
     public function goodAdresses() : array
     {
         return [
-            ['anatolij.vasilev@live.de', 'Anatolij', 'Vasilev', 'Hansatraße 24', '12346', 'Berlin', 'Berlin', 'Deutschland', '0301781567', 'Flyeralarm'],
-            ['krasser.dude@flyeralarm.de', 'Krasser', 'Dude', 'Würzburger Str. 107', '94112', 'Würzburg', 'Bayern', 'Deutschland', '+490301781567', 'Flyeralarm']
+            ['anatolij.vasilev@returnnull.de', 'Anatolij', 'Vasilev', 'Hansatraße 24', '12346', 'Berlin', 'Berlin', 'Deutschland', '0301781567', 'Tolik518'],
+            ['krasser.dude@email.de', 'Krasser', 'Dude', 'Würzburger Str. 107', '94112', 'Würzburg', 'Bayern', 'Deutschland', '+490301781567', 'Firmenname']
         ];
     }
 }
