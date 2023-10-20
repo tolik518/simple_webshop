@@ -1,41 +1,31 @@
 VENDORNAME=tolik518
 PROJECTNAME=webshop
 
-CLI=PROJECTNAME=$(PROJECTNAME) VENDORNAME=$(VENDORNAME)  docker-compose -p $(PROJECTNAME) -f docker/compose/docker-compose-cli.yml
-COMPOSE=PROJECTNAME=$(PROJECTNAME) VENDORNAME=$(VENDORNAME) docker-compose -p $(PROJECTNAME) -f docker/compose/docker-compose-dev.yml
-
-.PHONY: build_dev
-build_dev:
-	docker build -f docker/php/Dockerfile . \
-	-t $(VENDORNAME)/$(PROJECTNAME)/php:dev
-	docker build -f docker/nginx/Dockerfile . \
-	-t $(VENDORNAME)/$(PROJECTNAME)/nginx:dev
-	docker build -f docker/database/Dockerfile . \
-	-t $(VENDORNAME)/$(PROJECTNAME)/database:dev
-	docker build -f docker/php_cli/Dockerfile . \
-	-t $(VENDORNAME)/$(PROJECTNAME)/php_cli:dev
+.PHONY: build
+build:
+	docker compose build
 
 .PHONY: run
 run:
-	$(COMPOSE) up -d
+	docker compose up -d
 	docker ps
 
 .PHONY: stop
 stop:
-	$(COMPOSE) down --remove-orphans
+	docker compose down --remove-orphans
 	docker ps
 
 .PHONY: install
 install:
-	$(CLI) run --rm --no-deps php_cli php -d memory_limit=-1 /usr/bin/composer install
+	docker compose run --rm --no-deps php_cli php -d memory_limit=-1 /usr/local/bin/composer install
 
 .PHONY: update
 update:
-	$(CLI) run --rm --no-deps php_cli php -d memory_limit=-1 /usr/bin/composer update
+	docker compose run --rm --no-deps php_cli php -d memory_limit=-1 /usr/local/bin/composer update
 
 .PHONY: logs
 logs:
-	$(COMPOSE) logs
+	docker compose logs
 
 .PHONY: cleanup
 cleanup:

@@ -1,0 +1,46 @@
+version: '3.5'
+services:
+
+  nginx:
+    build:
+      context: docker/nginx
+      dockerfile: Dockerfile
+    container_name: webshop_nginx
+    volumes:
+      - ./code/public:/var/www/html/public
+    ports:
+      - '80:80'
+
+  php:
+    build:
+      context: docker/php
+      dockerfile: Dockerfile
+    container_name: webshop_php
+    volumes:
+      - ./code:/var/www/html
+      - ./docker/php/php-ini-overrides.ini:/etc/php/8.0/cli/conf.d/php-ini-overrides.ini
+
+  database:
+    build:
+      context: docker/database
+      dockerfile: Dockerfile
+    container_name: webshop_database
+    volumes:
+      - ./database:/var/lib/mysql:rw
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_DATABASE=webshop
+    ports:
+      - '3306:3306'
+
+  php_cli:
+    build:
+      context: docker/php_cli
+      dockerfile: Dockerfile
+    container_name: webshop_php_cli
+    working_dir: /var/www/html
+    volumes:
+      - ./code:/var/www/html
+      - ./docker/php/php_cli/php-ini-overrides.ini:/etc/php/8.0/cli/conf.d/php-ini-overrides.ini
+    environment:
+      - VHOST=localhost
